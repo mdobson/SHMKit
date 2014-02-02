@@ -19,5 +19,6 @@
 @property NSArray *fields;
 
 -(id) initWithDictionary:(NSDictionary *)data;
+-(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, NSHTTPURLResponse*, NSData *))block;
 
 @end

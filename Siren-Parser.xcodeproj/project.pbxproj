@@ -20,6 +20,8 @@
 		F5E5C829189DE7C700602FB0 /* Siren_Link.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C828189DE7C700602FB0 /* Siren_Link.m */; };
 		F5E5C82C189DE7D400602FB0 /* Siren_Action.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C82B189DE7D400602FB0 /* Siren_Action.m */; };
 		F5E5C82F189DE82600602FB0 /* Siren_Action_Field.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C82E189DE82600602FB0 /* Siren_Action_Field.m */; };
+		F5E5C831189E9F9100602FB0 /* Siren_EntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C830189E9F9100602FB0 /* Siren_EntityTests.m */; };
+		F5E5C833189EA1BD00602FB0 /* Siren_LinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C832189EA1BD00602FB0 /* Siren_LinkTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		F5E5C82B189DE7D400602FB0 /* Siren_Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siren_Action.m; sourceTree = "<group>"; };
 		F5E5C82D189DE82600602FB0 /* Siren_Action_Field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Siren_Action_Field.h; sourceTree = "<group>"; };
 		F5E5C82E189DE82600602FB0 /* Siren_Action_Field.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siren_Action_Field.m; sourceTree = "<group>"; };
+		F5E5C830189E9F9100602FB0 /* Siren_EntityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siren_EntityTests.m; sourceTree = "<group>"; };
+		F5E5C832189EA1BD00602FB0 /* Siren_LinkTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siren_LinkTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +154,8 @@
 			children = (
 				F5E5C814189DE02700602FB0 /* Siren_ParserTests.m */,
 				F5E5C80F189DE02700602FB0 /* Supporting Files */,
+				F5E5C830189E9F9100602FB0 /* Siren_EntityTests.m */,
+				F5E5C832189EA1BD00602FB0 /* Siren_LinkTests.m */,
 			);
 			path = "Siren-ParserTests";
 			sourceTree = "<group>";
@@ -256,6 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E5C833189EA1BD00602FB0 /* Siren_LinkTests.m in Sources */,
+				F5E5C831189E9F9100602FB0 /* Siren_EntityTests.m in Sources */,
 				F5E5C815189DE02700602FB0 /* Siren_ParserTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

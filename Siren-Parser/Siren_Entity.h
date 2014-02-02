@@ -20,5 +20,6 @@
 -(id) initWithData:(NSData *)data;
 -(id) initWithDictionary:(NSDictionary *)json;
 -(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *error, Siren_Entity *entity))block;
+-(void) performAction:(NSString*)actionName withData:(NSDictionary *)data withCompletion:(void (^)(NSError *error, NSInteger statusCode, Siren_Entity *entity))block;
 
 @end

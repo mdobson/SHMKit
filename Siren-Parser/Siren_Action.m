@@ -35,4 +35,21 @@
     return self;
 }
 
+-(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, NSHTTPURLResponse*, NSData *))block {
+    NSURL *url = [[NSURL alloc] initWithString:self.href];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = self.method;
+    [NSURLConnection sendAsynchronousRequest:request
+                                       queue:[NSOperationQueue mainQueue]
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *err){
+                               NSHTTPURLResponse * res = (NSHTTPURLResponse *)response;
+                               if (res.statusCode < 200 || res.statusCode > 299) {
+                                   NSError *err = [[NSError alloc] initWithDomain:@"siren" code:res.statusCode userInfo:@{NSLocalizedDescriptionKey: @"Request error. Code is HTTP Status Code."}];
+                                   block(err, nil, nil);
+                               } else {
+                                   block(nil, res, data);
+                               }
+                           }];
+}
+
 @end
