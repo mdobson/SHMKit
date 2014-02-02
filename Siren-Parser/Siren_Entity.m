@@ -12,7 +12,7 @@
 
 @implementation Siren_Entity
 
--(id) initWithString:(NSData *)data {
+-(id) initWithData:(NSData *)data {
     if (self = [super init]) {
         NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         self.class = json[@"class"];
@@ -78,6 +78,44 @@
     }
     
     return self;
+}
+
+-(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *, Siren_Entity *))block {
+    NSString * method = @"GET";
+    NSString * href = nil;
+    for (Siren_Link *link in self.links) {
+        for (NSString *rel in link.rel) {
+            if ([linkRel isEqualToString:rel]) {
+                href = link.href;
+                break;
+            }
+        }
+        if (href != nil) {
+            break;
+        }
+    }
+    
+    if (href != nil) {
+        NSURL *url = [[NSURL alloc] initWithString:href];
+        NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
+        req.HTTPMethod = method;
+        [NSURLConnection sendAsynchronousRequest:req
+                                           queue:[NSOperationQueue mainQueue]
+                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *err){
+                                   NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
+                                   if (res.statusCode != 200) {
+                                       NSError *err = [[NSError alloc] initWithDomain:@"siren" code:res.statusCode userInfo:@{NSLocalizedDescriptionKey: @"Request error. Code is HTTP Status Code."}];
+                                       block(err, nil);
+                                   } else {
+                                       Siren_Entity *entity = [[Siren_Entity alloc] initWithData:data];
+                                       block(nil, entity);
+                                   }
+                               }];
+    } else {
+        NSError *err = [[NSError alloc] initWithDomain:@"siren" code:1 userInfo:@{NSLocalizedDescriptionKey: @"No href to step to."}];
+        block(err, nil);
+    }
+
 }
 
 

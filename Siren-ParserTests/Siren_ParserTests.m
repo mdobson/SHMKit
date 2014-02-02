@@ -7,6 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Siren_Parser.h"
+#import "Siren_Entity.h"
 
 @interface Siren_ParserTests : XCTestCase
 
@@ -26,10 +28,32 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testInit
 {
-    NSLog(@"Test 1");
-    XCTAssert(YES==YES, @"Yes equals yes");
+    NSString *url = @"http://msiren.herokuapp.com/";
+    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
+    XCTAssert(parser.endpoint == url, @"URLs: parser:%@ base:%@", parser.endpoint, url);
+    
+}
+
+- (void)testGetRoot
+{
+    NSString *url = @"http://msiren.herokuapp.com/";
+    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *error, Siren_Entity *entity){
+        XCTAssert(error == nil, @"Error is not nil");
+        XCTAssert(entity != nil, @"Entity is nil");
+    }];
+}
+
+- (void)testGetRootSendsError
+{
+    NSString * url = @"http://mattsaidshouldfail.com/";
+    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, Siren_Entity *entity){
+        XCTAssert(err != nil, @"Retrieved endpoint successfully?");
+        XCTAssert(entity == nil, @"Entity not nil.");
+    }];
 }
 
 @end

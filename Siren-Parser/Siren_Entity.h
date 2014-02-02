@@ -17,7 +17,8 @@
 @property NSArray *actions;
 @property NSString *title;
 
--(id) initWithString:(NSData *)data;
+-(id) initWithData:(NSData *)data;
 -(id) initWithDictionary:(NSDictionary *)json;
+-(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *error, Siren_Entity *entity))block;
 
 @end

@@ -7,10 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Siren_Entity.h"
 
 @interface Siren_Parser : NSObject
 
+@property NSString *endpoint;
+
 -(id) initWithSirenRoot:(NSString*)endpoint;
 
+-(void) retrieveRoot:(void (^)(NSError *err, Siren_Entity* entity))block;
 @end
 
