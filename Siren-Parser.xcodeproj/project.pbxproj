@@ -1,0 +1,448 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F5E5C7F9189DE02600602FB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F8189DE02600602FB0 /* Foundation.framework */; };
+		F5E5C7FE189DE02700602FB0 /* Siren_Parser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5E5C7FD189DE02700602FB0 /* Siren_Parser.h */; };
+		F5E5C800189DE02700602FB0 /* Siren_Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C7FF189DE02700602FB0 /* Siren_Parser.m */; };
+		F5E5C807189DE02700602FB0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C806189DE02700602FB0 /* XCTest.framework */; };
+		F5E5C808189DE02700602FB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F8189DE02600602FB0 /* Foundation.framework */; };
+		F5E5C80A189DE02700602FB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C809189DE02700602FB0 /* UIKit.framework */; };
+		F5E5C80D189DE02700602FB0 /* libSiren-Parser.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F5189DE02600602FB0 /* libSiren-Parser.a */; };
+		F5E5C813189DE02700602FB0 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F5E5C811189DE02700602FB0 /* InfoPlist.strings */; };
+		F5E5C815189DE02700602FB0 /* Siren_ParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C814189DE02700602FB0 /* Siren_ParserTests.m */; };
+		F5E5C823189DE78700602FB0 /* Siren_Entity.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C822189DE78700602FB0 /* Siren_Entity.m */; };
+		F5E5C829189DE7C700602FB0 /* Siren_Link.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C828189DE7C700602FB0 /* Siren_Link.m */; };
+		F5E5C82C189DE7D400602FB0 /* Siren_Action.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C82B189DE7D400602FB0 /* Siren_Action.m */; };
+		F5E5C82F189DE82600602FB0 /* Siren_Action_Field.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C82E189DE82600602FB0 /* Siren_Action_Field.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F5E5C80B189DE02700602FB0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F5E5C7ED189DE02600602FB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F5E5C7F4189DE02600602FB0;
+			remoteInfo = "Siren-Parser";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F5E5C7F3189DE02600602FB0 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				F5E5C7FE189DE02700602FB0 /* Siren_Parser.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		F5E5C7F5189DE02600602FB0 /* libSiren-Parser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSiren-Parser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5E5C7F8189DE02600602FB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		F5E5C7FC189DE02600602FB0 /* Siren-Parser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Siren-Parser-Prefix.pch"; sourceTree = "<group>"; };
+		F5E5C7FD189DE02700602FB0 /* Siren_Parser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Siren_Parser.h; sourceTree = "<group>"; };
+		F5E5C7FF189DE02700602FB0 /* Siren_Parser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Siren_Parser.m; sourceTree = "<group>"; };
+		F5E5C805189DE02700602FB0 /* Siren-ParserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Siren-ParserTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5E5C806189DE02700602FB0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		F5E5C809189DE02700602FB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		F5E5C810189DE02700602FB0 /* Siren-ParserTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Siren-ParserTests-Info.plist"; sourceTree = "<group>"; };
+		F5E5C812189DE02700602FB0 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F5E5C814189DE02700602FB0 /* Siren_ParserTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Siren_ParserTests.m; sourceTree = "<group>"; };
+		F5E5C821189DE78700602FB0 /* Siren_Entity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Siren_Entity.h; sourceTree = "<group>"; };
+		F5E5C822189DE78700602FB0 /* Siren_Entity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siren_Entity.m; sourceTree = "<group>"; };
+		F5E5C827189DE7C700602FB0 /* Siren_Link.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Siren_Link.h; sourceTree = "<group>"; };
+		F5E5C828189DE7C700602FB0 /* Siren_Link.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siren_Link.m; sourceTree = "<group>"; };
+		F5E5C82A189DE7D400602FB0 /* Siren_Action.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Siren_Action.h; sourceTree = "<group>"; };
+		F5E5C82B189DE7D400602FB0 /* Siren_Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siren_Action.m; sourceTree = "<group>"; };
+		F5E5C82D189DE82600602FB0 /* Siren_Action_Field.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Siren_Action_Field.h; sourceTree = "<group>"; };
+		F5E5C82E189DE82600602FB0 /* Siren_Action_Field.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siren_Action_Field.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F5E5C7F2189DE02600602FB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E5C7F9189DE02600602FB0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5E5C802189DE02700602FB0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E5C807189DE02700602FB0 /* XCTest.framework in Frameworks */,
+				F5E5C80A189DE02700602FB0 /* UIKit.framework in Frameworks */,
+				F5E5C80D189DE02700602FB0 /* libSiren-Parser.a in Frameworks */,
+				F5E5C808189DE02700602FB0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F5E5C7EC189DE02600602FB0 = {
+			isa = PBXGroup;
+			children = (
+				F5E5C7FA189DE02600602FB0 /* Siren-Parser */,
+				F5E5C80E189DE02700602FB0 /* Siren-ParserTests */,
+				F5E5C7F7189DE02600602FB0 /* Frameworks */,
+				F5E5C7F6189DE02600602FB0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F5E5C7F6189DE02600602FB0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F5E5C7F5189DE02600602FB0 /* libSiren-Parser.a */,
+				F5E5C805189DE02700602FB0 /* Siren-ParserTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F5E5C7F7189DE02600602FB0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5E5C7F8189DE02600602FB0 /* Foundation.framework */,
+				F5E5C806189DE02700602FB0 /* XCTest.framework */,
+				F5E5C809189DE02700602FB0 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F5E5C7FA189DE02600602FB0 /* Siren-Parser */ = {
+			isa = PBXGroup;
+			children = (
+				F5E5C7FD189DE02700602FB0 /* Siren_Parser.h */,
+				F5E5C7FF189DE02700602FB0 /* Siren_Parser.m */,
+				F5E5C7FB189DE02600602FB0 /* Supporting Files */,
+				F5E5C821189DE78700602FB0 /* Siren_Entity.h */,
+				F5E5C822189DE78700602FB0 /* Siren_Entity.m */,
+				F5E5C827189DE7C700602FB0 /* Siren_Link.h */,
+				F5E5C828189DE7C700602FB0 /* Siren_Link.m */,
+				F5E5C82A189DE7D400602FB0 /* Siren_Action.h */,
+				F5E5C82B189DE7D400602FB0 /* Siren_Action.m */,
+				F5E5C82D189DE82600602FB0 /* Siren_Action_Field.h */,
+				F5E5C82E189DE82600602FB0 /* Siren_Action_Field.m */,
+			);
+			path = "Siren-Parser";
+			sourceTree = "<group>";
+		};
+		F5E5C7FB189DE02600602FB0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5E5C7FC189DE02600602FB0 /* Siren-Parser-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F5E5C80E189DE02700602FB0 /* Siren-ParserTests */ = {
+			isa = PBXGroup;
+			children = (
+				F5E5C814189DE02700602FB0 /* Siren_ParserTests.m */,
+				F5E5C80F189DE02700602FB0 /* Supporting Files */,
+			);
+			path = "Siren-ParserTests";
+			sourceTree = "<group>";
+		};
+		F5E5C80F189DE02700602FB0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F5E5C810189DE02700602FB0 /* Siren-ParserTests-Info.plist */,
+				F5E5C811189DE02700602FB0 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F5E5C7F4189DE02600602FB0 /* Siren-Parser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5E5C818189DE02700602FB0 /* Build configuration list for PBXNativeTarget "Siren-Parser" */;
+			buildPhases = (
+				F5E5C7F1189DE02600602FB0 /* Sources */,
+				F5E5C7F2189DE02600602FB0 /* Frameworks */,
+				F5E5C7F3189DE02600602FB0 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Siren-Parser";
+			productName = "Siren-Parser";
+			productReference = F5E5C7F5189DE02600602FB0 /* libSiren-Parser.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		F5E5C804189DE02700602FB0 /* Siren-ParserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F5E5C81B189DE02700602FB0 /* Build configuration list for PBXNativeTarget "Siren-ParserTests" */;
+			buildPhases = (
+				F5E5C801189DE02700602FB0 /* Sources */,
+				F5E5C802189DE02700602FB0 /* Frameworks */,
+				F5E5C803189DE02700602FB0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F5E5C80C189DE02700602FB0 /* PBXTargetDependency */,
+			);
+			name = "Siren-ParserTests";
+			productName = "Siren-ParserTests";
+			productReference = F5E5C805189DE02700602FB0 /* Siren-ParserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F5E5C7ED189DE02600602FB0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Matthew Dobson";
+			};
+			buildConfigurationList = F5E5C7F0189DE02600602FB0 /* Build configuration list for PBXProject "Siren-Parser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = F5E5C7EC189DE02600602FB0;
+			productRefGroup = F5E5C7F6189DE02600602FB0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F5E5C7F4189DE02600602FB0 /* Siren-Parser */,
+				F5E5C804189DE02700602FB0 /* Siren-ParserTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5E5C803189DE02700602FB0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E5C813189DE02700602FB0 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F5E5C7F1189DE02600602FB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E5C823189DE78700602FB0 /* Siren_Entity.m in Sources */,
+				F5E5C829189DE7C700602FB0 /* Siren_Link.m in Sources */,
+				F5E5C82C189DE7D400602FB0 /* Siren_Action.m in Sources */,
+				F5E5C800189DE02700602FB0 /* Siren_Parser.m in Sources */,
+				F5E5C82F189DE82600602FB0 /* Siren_Action_Field.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F5E5C801189DE02700602FB0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F5E5C815189DE02700602FB0 /* Siren_ParserTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F5E5C80C189DE02700602FB0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F5E5C7F4189DE02600602FB0 /* Siren-Parser */;
+			targetProxy = F5E5C80B189DE02700602FB0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		F5E5C811189DE02700602FB0 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F5E5C812189DE02700602FB0 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		F5E5C816189DE02700602FB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		F5E5C817189DE02700602FB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		F5E5C819189DE02700602FB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Siren_Parser.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Siren-Parser/Siren-Parser-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		F5E5C81A189DE02700602FB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/Siren_Parser.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Siren-Parser/Siren-Parser-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		F5E5C81C189DE02700602FB0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Siren-Parser/Siren-Parser-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Siren-ParserTests/Siren-ParserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		F5E5C81D189DE02700602FB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Siren-Parser/Siren-Parser-Prefix.pch";
+				INFOPLIST_FILE = "Siren-ParserTests/Siren-ParserTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F5E5C7F0189DE02600602FB0 /* Build configuration list for PBXProject "Siren-Parser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5E5C816189DE02700602FB0 /* Debug */,
+				F5E5C817189DE02700602FB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F5E5C818189DE02700602FB0 /* Build configuration list for PBXNativeTarget "Siren-Parser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5E5C819189DE02700602FB0 /* Debug */,
+				F5E5C81A189DE02700602FB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		F5E5C81B189DE02700602FB0 /* Build configuration list for PBXNativeTarget "Siren-ParserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F5E5C81C189DE02700602FB0 /* Debug */,
+				F5E5C81D189DE02700602FB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = F5E5C7ED189DE02600602FB0 /* Project object */;
+}
