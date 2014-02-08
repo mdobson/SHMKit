@@ -10,4 +10,8 @@
 
 @interface Siren_Action_Data_Helper : NSObject
 
++(NSString *) encodeUrlData:(NSDictionary *)params;
+
++(NSString *) encodeJSONData:(NSDictionary *)params withError:(NSError **)err;
+
 @end

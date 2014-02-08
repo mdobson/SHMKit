@@ -7,7 +7,25 @@
 //
 
 #import "Siren_Action_Data_Helper.h"
+#import "URL_Helper.h"
 
 @implementation Siren_Action_Data_Helper
+
++(NSString *)encodeUrlData:(NSDictionary *)params {
+    return [URL_Helper encodeQueryData:params];
+}
+
++(NSString *)encodeJSONData:(NSDictionary *)params withError:(NSError **)err {
+
+    NSData *json = [NSJSONSerialization dataWithJSONObject:params
+                                                   options:NSJSONWritingPrettyPrinted
+                                                     error:err];
+    
+    if (err) {
+        return nil;
+    } else {
+        return [[NSString alloc] initWithData:json encoding:NSUTF8StringEncoding];
+    }
+}
 
 @end
