@@ -36,6 +36,12 @@
 }
 
 -(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, NSHTTPURLResponse*, NSData *))block {
+    
+    //If no method, or if it's a get
+    if (!self.method || [self.method isEqualToString:@"GET"]) {
+        
+    }
+    
     NSURL *url = [[NSURL alloc] initWithString:self.href];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     request.HTTPMethod = self.method;

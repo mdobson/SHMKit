@@ -1,0 +1,13 @@
+//
+//  Siren_Action_Data_Helper.h
+//  Siren-Parser
+//
+//  Created by Matthew Dobson on 2/8/14.
+//  Copyright (c) 2014 Matthew Dobson. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@interface Siren_Action_Data_Helper : NSObject
+
+@end
