@@ -93,4 +93,18 @@
     return self;
 }
 
+-(id) render {
+    
+    if (self.type == Siren_Field_Hidden) {
+        UILabel *uilabel = [[UILabel alloc] init];
+        uilabel.text = self.value;
+        [uilabel setHidden:TRUE];
+        return uilabel;
+
+    }
+    else {
+        return nil;
+    }
+}
+
 @end
