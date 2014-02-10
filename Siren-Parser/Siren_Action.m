@@ -8,6 +8,15 @@
 
 #import "Siren_Action.h"
 #import "Siren_Action_Field.h"
+#import "URL_Helper.h"
+#import "Siren_Action_Data_Helper.h"
+#import "Constants.h"
+
+@interface Siren_Action()
+
+-(NSMutableURLRequest *) constructHttpActionWithParams:(NSDictionary *)dict;
+
+@end
 
 @implementation Siren_Action
 
@@ -15,12 +24,17 @@
     if (self = [super init]) {
         self.name = data[@"name"];
         self.class = data[@"class"];
-        self.method = data[@"method"];
         self.href = data[@"href"];
         self.type = data[@"type"];
         
         if ([data objectForKey:@"title"] != nil) {
             self.title = data[@"title"];
+        }
+        
+        if ([data objectForKey:@"method"] != nil) {
+            self.method = data[@"method"];
+        } else {
+            self.method = GETVERB;
         }
         
         NSMutableArray *actionFields = [[NSMutableArray alloc] init];
@@ -35,16 +49,36 @@
     return self;
 }
 
--(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, NSHTTPURLResponse*, NSData *))block {
+//I want to split this method up into two distinct methods. One for constructing bodyless verb requests and one for constructing requests with bodies.
+-(NSMutableURLRequest *) constructHttpActionWithParams:(NSDictionary *)dict {
     
-    //If no method, or if it's a get
-    if (!self.method || [self.method isEqualToString:@"GET"]) {
-        
+    NSString * url = nil;
+    NSString * body = nil;
+    if ([self.method isEqualToString:GETVERB]) {
+        url = [URL_Helper encodeUrl:self.href withDictParams:dict];
+    } else {
+        url = self.href;
+        if ([self.type isEqualToString:@"application/json"]) {
+            body = [Siren_Action_Data_Helper encodeJSONData:dict withError:nil];
+        } else {
+            body = [Siren_Action_Data_Helper encodeUrlData:dict];
+        }
     }
     
-    NSURL *url = [[NSURL alloc] initWithString:self.href];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    NSURL *urlObj = [[NSURL alloc] initWithString:url];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
+    
+    if (body != nil) {
+        [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+    }
+    
     request.HTTPMethod = self.method;
+    return request;
+}
+
+-(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, NSHTTPURLResponse*, NSData *))block {
+    
+    NSMutableURLRequest *request = [self constructHttpActionWithParams:fields];
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *err){
