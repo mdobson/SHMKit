@@ -12,6 +12,7 @@
 		F526654018A6C17500A3FD77 /* URL_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F526653F18A6C17500A3FD77 /* URL_HelperTests.m */; };
 		F526654218A6C44600A3FD77 /* Siren_Action_Data_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F526654118A6C44600A3FD77 /* Siren_Action_Data_HelperTests.m */; };
 		F5C26D5D18A91C0400B2F6D6 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C26D5C18A91C0400B2F6D6 /* Constants.m */; };
+		F5CDE68718AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CDE68618AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.m */; };
 		F5E5C7F9189DE02600602FB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F8189DE02600602FB0 /* Foundation.framework */; };
 		F5E5C7FE189DE02700602FB0 /* Siren_Parser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5E5C7FD189DE02700602FB0 /* Siren_Parser.h */; };
 		F5E5C800189DE02700602FB0 /* Siren_Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C7FF189DE02700602FB0 /* Siren_Parser.m */; };
@@ -61,6 +62,8 @@
 		F526654118A6C44600A3FD77 /* Siren_Action_Data_HelperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Siren_Action_Data_HelperTests.m; sourceTree = "<group>"; };
 		F5C26D5B18A91C0400B2F6D6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F5C26D5C18A91C0400B2F6D6 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		F5CDE68518AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Siren_Action+Siren_Action_Request_Builder.h"; sourceTree = "<group>"; };
+		F5CDE68618AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Siren_Action+Siren_Action_Request_Builder.m"; sourceTree = "<group>"; };
 		F5E5C7F5189DE02600602FB0 /* libSiren-Parser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSiren-Parser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E5C7F8189DE02600602FB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5E5C7FC189DE02600602FB0 /* Siren-Parser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Siren-Parser-Prefix.pch"; sourceTree = "<group>"; };
@@ -156,6 +159,8 @@
 				F526653D18A6BDEB00A3FD77 /* Siren_Action_Data_Helper.m */,
 				F5C26D5B18A91C0400B2F6D6 /* Constants.h */,
 				F5C26D5C18A91C0400B2F6D6 /* Constants.m */,
+				F5CDE68518AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.h */,
+				F5CDE68618AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.m */,
 			);
 			path = "Siren-Parser";
 			sourceTree = "<group>";
@@ -273,6 +278,7 @@
 			files = (
 				F526653E18A6BDEB00A3FD77 /* Siren_Action_Data_Helper.m in Sources */,
 				F5E5C823189DE78700602FB0 /* Siren_Entity.m in Sources */,
+				F5CDE68718AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.m in Sources */,
 				F5E5C829189DE7C700602FB0 /* Siren_Link.m in Sources */,
 				F5C26D5D18A91C0400B2F6D6 /* Constants.m in Sources */,
 				F5E5C82C189DE7D400602FB0 /* Siren_Action.m in Sources */,
