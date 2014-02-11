@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "Constants.h"
 @interface Siren_Action : NSObject
 
 @property NSString *name;
 @property NSArray *class;
-@property NSString *method;
+@property HTTP_VERB method;
 @property NSString *href;
 @property NSString *title;
 @property NSString *type;

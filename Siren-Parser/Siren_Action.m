@@ -14,7 +14,11 @@
 
 @interface Siren_Action()
 
--(NSMutableURLRequest *) constructHttpActionWithParams:(NSDictionary *)dict;
+-(NSMutableURLRequest *) constructRequest:(NSDictionary *)dict;
+-(NSMutableURLRequest *) constructHTTPRequestWithParams:(NSDictionary *)dict;
+-(NSMutableURLRequest *) constructBodylessHTTPRequestWithParams:(NSDictionary *)dict;
++ (HTTP_VERB) verbFromString:(NSString *)verb;
++ (NSString *) verbFromEnum:(HTTP_VERB)verb;
 
 @end
 
@@ -32,9 +36,9 @@
         }
         
         if ([data objectForKey:@"method"] != nil) {
-            self.method = data[@"method"];
+            self.method = [Siren_Action verbFromString:data[@"method"]];
         } else {
-            self.method = GETVERB;
+            self.method = [Siren_Action verbFromString:GETVERB];
         }
         
         NSMutableArray *actionFields = [[NSMutableArray alloc] init];
@@ -49,15 +53,61 @@
     return self;
 }
 
-//I want to split this method up into two distinct methods. One for constructing bodyless verb requests and one for constructing requests with bodies.
--(NSMutableURLRequest *) constructHttpActionWithParams:(NSDictionary *)dict {
++ (HTTP_VERB) verbFromString:(NSString *)verb {
+    NSDictionary *lookup = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            [NSNumber numberWithInt:GET],@"GET",
+                            [NSNumber numberWithInt:POST],@"POST",
+                            [NSNumber numberWithInt:PUT],@"PUT",
+                            [NSNumber numberWithInt:DELETE],@"DELETE",
+                            [NSNumber numberWithInt:TRACE],@"TRACE",
+                            [NSNumber numberWithInt:OPTIONS],@"OPTIONS",
+                            [NSNumber numberWithInt:PATCH],@"PATCH",
+                            [NSNumber numberWithInt:HEAD],@"HEAD", nil];
     
-    NSString * url = nil;
-    NSString * body = nil;
-    if ([self.method isEqualToString:GETVERB]) {
-        url = [URL_Helper encodeUrl:self.href withDictParams:dict];
+    return (HTTP_VERB)[[lookup objectForKey:verb] integerValue];
+}
+
++ (NSString *) verbFromEnum:(HTTP_VERB)verb {
+    NSDictionary *lookup = [[NSDictionary alloc] initWithObjectsAndKeys:
+                            @"GET", [NSNumber numberWithInt:GET],
+                            @"POST", [NSNumber numberWithInt:POST],
+                            @"PUT", [NSNumber numberWithInt:PUT],
+                            @"DELETE", [NSNumber numberWithInt:DELETE],
+                            @"TRACE", [NSNumber numberWithInt:TRACE],
+                            @"OPTIONS", [NSNumber numberWithInt:OPTIONS],
+                            @"PATCH", [NSNumber numberWithInt:PATCH],
+                            @"HEAD", [NSNumber numberWithInt:HEAD], nil];
+    return [lookup objectForKey:[NSNumber numberWithInt:verb]];
+}
+
+//I want to split this method up into two distinct methods. One for constructing bodyless verb requests and one for constructing requests with bodies.
+-(NSMutableURLRequest *) constructRequest:(NSDictionary *)dict {
+    
+    if (self.method == GET) {
+        return [self constructBodylessHTTPRequestWithParams:dict];
     } else {
-        url = self.href;
+        return [self constructHTTPRequestWithParams:dict];
+    }
+}
+
+-(NSMutableURLRequest *) constructBodylessHTTPRequestWithParams:(NSDictionary *)dict {
+    
+    NSString * constructedUrl = nil;
+    if ([dict count] > 0) {
+        constructedUrl = [URL_Helper encodeUrl:self.href withDictParams:dict];
+    } else {
+        constructedUrl = self.href;
+    }
+    
+    NSURL *urlObj = [[NSURL alloc] initWithString:constructedUrl];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
+    request.HTTPMethod = [Siren_Action verbFromEnum:self.method];
+    return request;
+}
+
+-(NSMutableURLRequest *) constructHTTPRequestWithParams:(NSDictionary *)dict {
+    NSString * body = nil;
+    if ([dict count] > 0) {
         if ([self.type isEqualToString:@"application/json"]) {
             body = [Siren_Action_Data_Helper encodeJSONData:dict withError:nil];
         } else {
@@ -65,20 +115,20 @@
         }
     }
     
-    NSURL *urlObj = [[NSURL alloc] initWithString:url];
+    NSURL *urlObj = [[NSURL alloc] initWithString:self.href];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
     
     if (body != nil) {
         [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     }
     
-    request.HTTPMethod = self.method;
+    request.HTTPMethod = [Siren_Action verbFromEnum:self.method];
     return request;
 }
 
 -(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, NSHTTPURLResponse*, NSData *))block {
     
-    NSMutableURLRequest *request = [self constructHttpActionWithParams:fields];
+    NSMutableURLRequest *request = [self constructRequest:fields];
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *err){

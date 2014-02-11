@@ -10,6 +10,19 @@
 
 FOUNDATION_EXPORT NSString *const GETVERB;
 
+typedef NS_ENUM(NSInteger, HTTP_VERB) {
+    GET,
+    POST,
+    PUT,
+    DELETE,
+    PATCH,
+    OPTIONS,
+    CONNECT,
+    HEAD,
+    TRACE
+};
+
+
 @interface Constants : NSObject
 
 @end
