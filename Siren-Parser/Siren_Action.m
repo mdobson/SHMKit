@@ -83,11 +83,38 @@
 //I want to split this method up into two distinct methods. One for constructing bodyless verb requests and one for constructing requests with bodies.
 -(NSMutableURLRequest *) constructRequest:(NSDictionary *)dict {
     
-    if (self.method == GET) {
-        return [self constructBodylessHTTPRequestWithParams:dict];
-    } else {
-        return [self constructHTTPRequestWithParams:dict];
+    switch (self.method) {
+        case GET:
+            return [self constructBodylessHTTPRequestWithParams:dict];
+            break;
+        case HEAD:
+            return [self constructBodylessHTTPRequestWithParams:dict];
+            break;
+        case POST:
+            return [self constructHTTPRequestWithParams:dict];
+            break;
+        case PUT:
+            return [self constructHTTPRequestWithParams:dict];
+            break;
+        case TRACE:
+            return [self constructBodylessHTTPRequestWithParams:dict];
+            break;
+        case DELETE:
+            return [self constructBodylessHTTPRequestWithParams:dict];
+            break;
+        case PATCH:
+            return [self constructHTTPRequestWithParams:dict];
+            break;
+        case OPTIONS:
+            return [self constructBodylessHTTPRequestWithParams:dict];
+            break;
+        case CONNECT:
+            return [self constructBodylessHTTPRequestWithParams:dict];
+            break;
+        default:
+            break;
     }
+
 }
 
 -(NSMutableURLRequest *) constructBodylessHTTPRequestWithParams:(NSDictionary *)dict {
