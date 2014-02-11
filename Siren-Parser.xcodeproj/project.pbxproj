@@ -13,6 +13,7 @@
 		F526654218A6C44600A3FD77 /* Siren_Action_Data_HelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F526654118A6C44600A3FD77 /* Siren_Action_Data_HelperTests.m */; };
 		F5C26D5D18A91C0400B2F6D6 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C26D5C18A91C0400B2F6D6 /* Constants.m */; };
 		F5CDE68718AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CDE68618AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.m */; };
+		F5CDE68918AA6BB000CAC8B9 /* Request_BuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F5CDE68818AA6BB000CAC8B9 /* Request_BuilderTests.m */; };
 		F5E5C7F9189DE02600602FB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F8189DE02600602FB0 /* Foundation.framework */; };
 		F5E5C7FE189DE02700602FB0 /* Siren_Parser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5E5C7FD189DE02700602FB0 /* Siren_Parser.h */; };
 		F5E5C800189DE02700602FB0 /* Siren_Parser.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E5C7FF189DE02700602FB0 /* Siren_Parser.m */; };
@@ -64,6 +65,7 @@
 		F5C26D5C18A91C0400B2F6D6 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		F5CDE68518AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Siren_Action+Siren_Action_Request_Builder.h"; sourceTree = "<group>"; };
 		F5CDE68618AA6AA900CAC8B9 /* Siren_Action+Siren_Action_Request_Builder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Siren_Action+Siren_Action_Request_Builder.m"; sourceTree = "<group>"; };
+		F5CDE68818AA6BB000CAC8B9 /* Request_BuilderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Request_BuilderTests.m; sourceTree = "<group>"; };
 		F5E5C7F5189DE02600602FB0 /* libSiren-Parser.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libSiren-Parser.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E5C7F8189DE02600602FB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5E5C7FC189DE02600602FB0 /* Siren-Parser-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Siren-Parser-Prefix.pch"; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				F5E5C832189EA1BD00602FB0 /* Siren_LinkTests.m */,
 				F526653F18A6C17500A3FD77 /* URL_HelperTests.m */,
 				F526654118A6C44600A3FD77 /* Siren_Action_Data_HelperTests.m */,
+				F5CDE68818AA6BB000CAC8B9 /* Request_BuilderTests.m */,
 			);
 			path = "Siren-ParserTests";
 			sourceTree = "<group>";
@@ -297,6 +300,7 @@
 				F5E5C831189E9F9100602FB0 /* Siren_EntityTests.m in Sources */,
 				F526654218A6C44600A3FD77 /* Siren_Action_Data_HelperTests.m in Sources */,
 				F5E5C815189DE02700602FB0 /* Siren_ParserTests.m in Sources */,
+				F5CDE68918AA6BB000CAC8B9 /* Request_BuilderTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
