@@ -7,6 +7,11 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "Siren_Action.h"
+#import "Siren_Action+Siren_Action_Request_Builder.h"
+#import "Siren_Parser.h"
+#import "Siren_Entity.h"
+
 
 @interface Request_BuilderTests : XCTestCase
 
@@ -28,47 +33,99 @@
 
 - (void)testBuildGET
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSString *url = @"http://msiren.herokuapp.com/";
+    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, Siren_Entity* entity){
+        [entity stepToLinkRel:@"museums"
+               withCompletion:^(NSError *err, Siren_Entity *entity){
+                   Siren_Action *action = [entity getSirenAction:@"get-museums"];
+                   NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"where museum='DIA'", @"query", @"5", @"limit", nil];
+                   NSMutableURLRequest *req = [action constructRequest:dict];
+                   XCTAssertTrue([req.HTTPMethod isEqualToString:@"GET"], @"Incorrect HTTP Method expecting GET had %@", req.HTTPMethod);
+                   XCTAssertTrue([[req.URL absoluteString] isEqualToString:@"http://msiren.herokuapp.com/museums?query=where%20museum=%27DIA%27&limit=5"], @"Incorrect HTTP Method expecting GET had %@", req.HTTPMethod);
+               }];
+    }];
 }
 
 - (void)testBuildPOST
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSString *url = @"http://msiren.herokuapp.com/";
+    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, Siren_Entity* entity){
+        [entity stepToLinkRel:@"museums"
+               withCompletion:^(NSError *err, Siren_Entity *entity){
+                   Siren_Action *action = [entity getSirenAction:@"add-museum"];
+                   NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"DIA", @"museum", @"5200 Woodward Ave.", @"address", @"Detroit", @"city", nil];
+                   NSMutableURLRequest *req = [action constructRequest:dict];
+                   NSDictionary *d = [NSJSONSerialization JSONObjectWithData:req.HTTPBody options:kNilOptions error:nil];
+                   XCTAssertTrue([d[@"museum"] isEqualToString:@"DIA"], @"Museum not DIA");
+                   XCTAssertTrue([d[@"address"] isEqualToString:@"5200 Woodward Ave"], @"Museum not DIA");
+                   XCTAssertTrue([d[@"city"] isEqualToString:@"Detroit"], @"Museum not DIA");
+                   XCTAssertTrue([req.HTTPMethod isEqualToString:@"POST"], @"Incorrect HTTP Method expecting POST had %@", req.HTTPMethod);
+
+               }];
+    }];
 }
 
 - (void)testBuildPUT
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSString *url = @"http://msiren.herokuapp.com/";
+    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, Siren_Entity* entity){
+        [entity stepToLinkRel:@"museums"
+               withCompletion:^(NSError *err, Siren_Entity *entity){
+                   Siren_Action *action = [entity getSirenAction:@"update-museum"];
+                   NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"DIA", @"museum", @"5200 Woodward Ave.", @"address", @"Detroit", @"city", nil];
+                   NSMutableURLRequest *req = [action constructRequest:dict];
+                   NSDictionary *d = [NSJSONSerialization JSONObjectWithData:req.HTTPBody options:kNilOptions error:nil];
+                   XCTAssertTrue([d[@"museum"] isEqualToString:@"DIA"], @"Museum not DIA");
+                   XCTAssertTrue([d[@"address"] isEqualToString:@"5200 Woodward Ave"], @"Museum not DIA");
+                   XCTAssertTrue([d[@"city"] isEqualToString:@"Detroit"], @"Museum not DIA");
+                   XCTAssertTrue([req.HTTPMethod isEqualToString:@"POST"], @"Incorrect HTTP Method expecting POST had %@", req.HTTPMethod);
+                   XCTAssertTrue([req.HTTPMethod isEqualToString:@"PUT"], @"Incorrect HTTP Method expecting PUT had %@", req.HTTPMethod);
+               }];
+    }];
 }
 
 - (void)testBuildDELETE
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    NSString *url = @"http://msiren.herokuapp.com/";
+    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, Siren_Entity* entity){
+        [entity stepToLinkRel:@"museums"
+               withCompletion:^(NSError *err, Siren_Entity *entity){
+                   Siren_Entity *first = entity.entities[0];
+                   Siren_Action *action = [first getSirenAction:@"delete-museum"];
+                   NSMutableURLRequest *req = [action constructRequest:nil];
+                   XCTAssertTrue([[req.URL absoluteString] isEqualToString:action.href], @"HREF doesn't match");
+                   XCTAssertTrue([req.HTTPMethod isEqualToString:@"DELETE"], @"Incorrect HTTP Method expecting DELETE had %@", req.HTTPMethod);
+               }];
+    }];
 }
 
-- (void)testBuildPATCH
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-- (void)testBuildTRACE
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-- (void)testBuildOPTIONS
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-- (void)testBuildCONNECT
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
-
-- (void)testBuildHEAD
-{
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
-}
+//- (void)testBuildPATCH
+//{
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//}
+//
+//- (void)testBuildTRACE
+//{
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//}
+//
+//- (void)testBuildOPTIONS
+//{
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//}
+//
+//- (void)testBuildCONNECT
+//{
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//}
+//
+//- (void)testBuildHEAD
+//{
+//    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+//}
 
 @end

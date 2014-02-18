@@ -118,29 +118,15 @@
 
 }
 
--(void) performAction:(NSString*)actionName withData:(NSDictionary *)data withCompletion:(void (^)(NSError *error, NSInteger statusCode, Siren_Entity *entity))block {
-    Siren_Action *actionToPerform = nil;
-    
+-(Siren_Action *) getSirenAction:(NSString *)name {
     for (Siren_Action *action in self.actions) {
-        if (action.name == actionName) {
-            actionToPerform = action;
-            break;
+        if ([action.name isEqualToString:name]) {
+            return action;
         }
     }
     
-    [actionToPerform performActionWithFields:data
-                               andCompletion:^(NSError *err, NSHTTPURLResponse *response, NSData *data){
-                                   
-                                   if (err != nil) {
-                                       block(err, response.statusCode, nil);
-                                   } else {
-                                        Siren_Entity *entity = [[Siren_Entity alloc] initWithData:data];
-                                       block(nil, response.statusCode, entity);
-                                   }
-                               }];
-    
+    return nil;
 }
-
 
 
 @end

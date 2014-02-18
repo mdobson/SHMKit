@@ -94,16 +94,18 @@
 
 -(NSMutableURLRequest *) constructHTTPRequestWithParams:(NSDictionary *)dict {
     NSString * body = nil;
+    NSURL *urlObj = [[NSURL alloc] initWithString:self.href];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
+    
     if ([dict count] > 0) {
         if ([self.type isEqualToString:@"application/json"]) {
             body = [Siren_Action_Data_Helper encodeJSONData:dict withError:nil];
+            [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         } else {
             body = [Siren_Action_Data_Helper encodeUrlData:dict];
+            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         }
     }
-    
-    NSURL *urlObj = [[NSURL alloc] initWithString:self.href];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
     
     if (body != nil) {
         [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];

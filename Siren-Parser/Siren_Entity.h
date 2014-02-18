@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Siren_Action.h"
 
 @interface Siren_Entity : NSObject
 
@@ -20,6 +21,6 @@
 -(id) initWithData:(NSData *)data;
 -(id) initWithDictionary:(NSDictionary *)json;
 -(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *error, Siren_Entity *entity))block;
--(void) performAction:(NSString*)actionName withData:(NSDictionary *)data withCompletion:(void (^)(NSError *error, NSInteger statusCode, Siren_Entity *entity))block;
+-(Siren_Action *) getSirenAction:(NSString *)name;
 
 @end

@@ -26,7 +26,7 @@
         [encodedParams addObject:[NSString stringWithFormat:@"%@=%@", keyVal, valVal]];
     }
     
-    return [encodedParams componentsJoinedByString:@"&"];
+    return [[encodedParams componentsJoinedByString:@"&"] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
 +(NSString *) encodeUrl:(NSString *)url withDictParams:(NSDictionary *)params {

@@ -34,6 +34,13 @@
     XCTAssert([encoded isEqualToString:@"one=1&two=2"], @"Encoding failed with val: %@", encoded);
 }
 
+- (void)testComponentsEncodedWithPercents
+{
+    NSDictionary *components = @{@"one":@" 1 ", @"two":@2};
+    NSString * encoded = [URL_Helper encodeQueryData:components];
+    XCTAssert([encoded isEqualToString:@"one=%201%20&two=2"], @"Encoding failed with val: %@", encoded);
+}
+
 - (void)testUrlEncoded
 {
     NSString *root = @"http://www.example.com";
