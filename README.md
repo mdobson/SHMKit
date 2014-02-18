@@ -4,6 +4,8 @@ SHMKit is a Siren Hypermedia Library for iOS. It will allow you to perform actio
 
 ### Getting Started
 
+Just drag and drop the SHMKit project into your iOS project. I'll get around to creating a more tidy library eventually.
+
 ### Reference
 
 #### SHMParser
