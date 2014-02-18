@@ -7,14 +7,14 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Siren_Parser.h"
-#import "Siren_Entity.h"
+#import "SHMParser.h"
+#import "SHMEntity.h"
 
-@interface Siren_EntityTests : XCTestCase
+@interface SHMEntityTests : XCTestCase
 
 @end
 
-@implementation Siren_EntityTests
+@implementation SHMEntityTests
 
 - (void)setUp
 {
@@ -31,8 +31,8 @@
 - (void)testEntityParsing
 {
     NSString *url = @"http://msiren.herokuapp.com/";
-    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
-    [parser retrieveRoot:^(NSError *err, Siren_Entity* entity){
+    SHMParser *parser = [[SHMParser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, SHMEntity* entity){
         XCTAssert([entity.class count] == 1, @"There is more than one entity class");
         XCTAssert([entity.class[0] isEqualToString:@"root"], @"First class in array isn't root");
         XCTAssert([entity.links count] == 2, @"Two links in the root API");
@@ -42,10 +42,10 @@
 - (void)testEntityNavigation
 {
     NSString *url = @"http://msiren.herokuapp.com/";
-    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
-    [parser retrieveRoot:^(NSError *err, Siren_Entity* entity){
+    SHMParser *parser = [[SHMParser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, SHMEntity* entity){
         [entity stepToLinkRel:@"museums"
-               withCompletion:^(NSError *err, Siren_Entity *entity){
+               withCompletion:^(NSError *err, SHMEntity *entity){
                    XCTAssert(err == nil, @"Error doesn't equal nil");
                    XCTAssert([entity.class count] == 2, @"Class amount is incorrect");
                    XCTAssert([entity.entities count] == 10, @"Class amount is incorrect");

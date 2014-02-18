@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "Siren_Action+Siren_Action_Request_Builder.h"
-#import "Constants.h"
-#import "URL_Helper.h"
-#import "Siren_Action_Data_Helper.h"
+#import "SHMAction+SHMActionRequestBuilder.h"
+#import "SHMConstants.h"
+#import "SHMUrlHelper.h"
+#import "SHMActionDataHelper.h"
 
-@implementation Siren_Action (Siren_Action_Request_Builder)
+@implementation SHMAction (SHMActionRequestBuilder)
 
 + (HTTP_VERB) verbFromString:(NSString *)verb {
     NSDictionary *lookup = [[NSDictionary alloc] initWithObjectsAndKeys:
@@ -81,14 +81,14 @@
     
     NSString * constructedUrl = nil;
     if ([dict count] > 0) {
-        constructedUrl = [URL_Helper encodeUrl:self.href withDictParams:dict];
+        constructedUrl = [SHMUrlHelper encodeUrl:self.href withDictParams:dict];
     } else {
         constructedUrl = self.href;
     }
     
     NSURL *urlObj = [[NSURL alloc] initWithString:constructedUrl];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
-    request.HTTPMethod = [Siren_Action verbFromEnum:self.method];
+    request.HTTPMethod = [SHMAction verbFromEnum:self.method];
     return request;
 }
 
@@ -99,10 +99,10 @@
     
     if ([dict count] > 0) {
         if ([self.type isEqualToString:@"application/json"]) {
-            body = [Siren_Action_Data_Helper encodeJSONData:dict withError:nil];
+            body = [SHMActionDataHelper encodeJSONData:dict withError:nil];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         } else {
-            body = [Siren_Action_Data_Helper encodeUrlData:dict];
+            body = [SHMActionDataHelper encodeUrlData:dict];
             [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         }
     }
@@ -111,7 +111,7 @@
         [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
     }
     
-    request.HTTPMethod = [Siren_Action verbFromEnum:self.method];
+    request.HTTPMethod = [SHMAction verbFromEnum:self.method];
     return request;
 }
 

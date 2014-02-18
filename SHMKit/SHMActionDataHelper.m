@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "Siren_Action_Data_Helper.h"
-#import "URL_Helper.h"
+#import "SHMActionDataHelper.h"
+#import "SHMUrlHelper.h"
 
-@implementation Siren_Action_Data_Helper
+@implementation SHMActionDataHelper
 
 +(NSString *)encodeUrlData:(NSDictionary *)params {
-    return [URL_Helper encodeQueryData:params];
+    return [SHMUrlHelper encodeQueryData:params];
 }
 
 +(NSString *)encodeJSONData:(NSDictionary *)params withError:(NSError **)err {

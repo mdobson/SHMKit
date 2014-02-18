@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Siren_Action.h"
+#import "SHMAction.h"
 
-@interface Siren_Entity : NSObject
+@interface SHMEntity : NSObject
 
 @property NSArray *class;
 @property NSDictionary *properties;
@@ -20,7 +20,7 @@
 
 -(id) initWithData:(NSData *)data;
 -(id) initWithDictionary:(NSDictionary *)json;
--(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *error, Siren_Entity *entity))block;
--(Siren_Action *) getSirenAction:(NSString *)name;
+-(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *error, SHMEntity *entity))block;
+-(SHMAction *) getSirenAction:(NSString *)name;
 
 @end

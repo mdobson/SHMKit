@@ -7,13 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Siren_Action_Data_Helper.h"
+#import "SHMActionDataHelper.h"
 
-@interface Siren_Action_Data_HelperTests : XCTestCase
+@interface SHMActionDataHelperTests : XCTestCase
 
 @end
 
-@implementation Siren_Action_Data_HelperTests
+@implementation SHMActionDataHelperTests
 
 - (void)setUp
 {
@@ -30,7 +30,7 @@
 - (void)testJSONSerialization
 {
     NSDictionary *components = @{@"one":@"1", @"two":@2};
-    NSString * encoded = [Siren_Action_Data_Helper encodeJSONData:components withError:nil];
+    NSString * encoded = [SHMActionDataHelper encodeJSONData:components withError:nil];
     XCTAssert(encoded != nil, @"Encoding failed with val: %@", encoded);
 }
 

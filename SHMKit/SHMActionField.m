@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "Siren_Action_Field.h"
+#import "SHMActionField.h"
 #import <UIKit/UIKit.h>
 
-@implementation Siren_Action_Field
+@implementation SHMActionField
 
 -(id) initWithDictionary:(NSDictionary *)data {
     if (self = [super init]) {

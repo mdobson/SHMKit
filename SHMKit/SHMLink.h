@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Siren_Link : NSObject
+@interface SHMLink : NSObject
 
 @property NSArray *rel;
 @property NSString *href;

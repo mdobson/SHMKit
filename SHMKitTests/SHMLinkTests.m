@@ -7,15 +7,15 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "Siren_Parser.h"
-#import "Siren_Entity.h"
-#import "Siren_Link.h"
+#import "SHMParser.h"
+#import "SHMEntity.h"
+#import "SHMLink.h"
 
-@interface Siren_LinkTests : XCTestCase
+@interface SHMLinkTests : XCTestCase
 
 @end
 
-@implementation Siren_LinkTests
+@implementation SHMLinkTests
 
 - (void)setUp
 {
@@ -32,10 +32,10 @@
 - (void)testLinkParsing
 {
     NSString *url = @"http://msiren.herokuapp.com/";
-    Siren_Parser *parser = [[Siren_Parser alloc] initWithSirenRoot:url];
-    [parser retrieveRoot:^(NSError *err, Siren_Entity* entity){
+    SHMParser *parser = [[SHMParser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, SHMEntity* entity){
         int i = 0;
-        for (Siren_Link *link in entity.links) {
+        for (SHMLink *link in entity.links) {
             switch (i) {
                 case 0:
                     XCTAssert([link.rel count] == 1, @"More than one rel in the first link");

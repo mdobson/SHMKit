@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "URL_Helper.h"
+#import "SHMUrlHelper.h"
 
-@implementation URL_Helper
+@implementation SHMUrlHelper
 
 +(NSString *) encodeQueryData:(NSDictionary *)params {
     NSMutableArray *encodedParams = [[NSMutableArray alloc] init];
@@ -30,7 +30,7 @@
 }
 
 +(NSString *) encodeUrl:(NSString *)url withDictParams:(NSDictionary *)params {
-    NSString *components = [URL_Helper encodeQueryData:params];
+    NSString *components = [SHMUrlHelper encodeQueryData:params];
     return [NSString stringWithFormat:@"%@?%@", url, components];
 }
 

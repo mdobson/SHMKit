@@ -35,7 +35,7 @@ typedef NS_ENUM(NSInteger, Siren_Field_Type) {
 };
 
 
-@interface Siren_Action_Field : NSObject
+@interface SHMActionField : NSObject
 
 @property NSString *name;
 @property Siren_Field_Type type;

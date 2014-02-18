@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Siren_Action_Data_Helper : NSObject
+@interface SHMActionDataHelper : NSObject
 
 +(NSString *) encodeUrlData:(NSDictionary *)params;
 

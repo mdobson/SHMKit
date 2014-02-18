@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "Siren_Action.h"
+#import "SHMAction.h"
 
-@interface Siren_Action (Siren_Action_Request_Builder)
+@interface SHMAction (SHMActionRequestBuilder)
 
 -(NSMutableURLRequest *) constructRequest:(NSDictionary *)dict;
 -(NSMutableURLRequest *) constructHTTPRequestWithParams:(NSDictionary *)dict;

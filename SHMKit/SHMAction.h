@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Constants.h"
-@interface Siren_Action : NSObject
+#import "SHMConstants.h"
+@interface SHMAction : NSObject
 
 @property NSString *name;
 @property NSArray *class;

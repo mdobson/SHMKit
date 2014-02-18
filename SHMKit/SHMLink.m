@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "Siren_Link.h"
+#import "SHMLink.h"
 
-@implementation Siren_Link
+@implementation SHMLink
 
 -(id) initWithDictionary:(NSDictionary *)data {
     if (self = [super init]) {

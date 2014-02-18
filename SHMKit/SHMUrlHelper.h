@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface URL_Helper : NSObject
+@interface SHMUrlHelper : NSObject
 
 +(NSString *)encodeQueryData:(NSDictionary *)params;
 

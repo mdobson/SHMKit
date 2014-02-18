@@ -6,11 +6,11 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "Siren_Entity.h"
-#import "Siren_Link.h"
-#import "Siren_Action.h"
+#import "SHMEntity.h"
+#import "SHMLink.h"
+#import "SHMAction.h"
 
-@implementation Siren_Entity
+@implementation SHMEntity
 
 -(id) initWithData:(NSData *)data {
     if (self = [super init]) {
@@ -21,7 +21,7 @@
         
         NSMutableArray *links = [[NSMutableArray alloc] init];
         for (NSDictionary *link in json[@"links"]) {
-            Siren_Link *parsedLink = [[Siren_Link alloc] initWithDictionary:link];
+            SHMLink *parsedLink = [[SHMLink alloc] initWithDictionary:link];
             [links addObject:parsedLink];
         }
         self.links = links;
@@ -29,7 +29,7 @@
         
         NSMutableArray *actions = [[NSMutableArray alloc] init];
         for (NSDictionary *action in json[@"actions"]) {
-            Siren_Action *a = [[Siren_Action alloc] initWithDictionary:action];
+            SHMAction *a = [[SHMAction alloc] initWithDictionary:action];
             [actions addObject:a];
         }
         self.actions = actions;
@@ -41,7 +41,7 @@
         if ([json objectForKey:@"entities"] != nil) {
             NSMutableArray *entities = [[NSMutableArray alloc] init];
             for (NSDictionary *dict in json[@"entities"]) {
-                Siren_Entity *entity = [[Siren_Entity alloc] initWithDictionary:dict];
+                SHMEntity *entity = [[SHMEntity alloc] initWithDictionary:dict];
                 [entities addObject:entity];
             }
             self.entities = entities;
@@ -59,7 +59,7 @@
         
         NSMutableArray *links = [[NSMutableArray alloc] init];
         for (NSDictionary *link in json[@"links"]) {
-            Siren_Link *parsedLink = [[Siren_Link alloc] initWithDictionary:link];
+            SHMLink *parsedLink = [[SHMLink alloc] initWithDictionary:link];
             [links addObject:parsedLink];
         }
         self.links = links;
@@ -67,7 +67,7 @@
         
         NSMutableArray *actions = [[NSMutableArray alloc] init];
         for (NSDictionary *action in json[@"actions"]) {
-            Siren_Action *a = [[Siren_Action alloc] initWithDictionary:action];
+            SHMAction *a = [[SHMAction alloc] initWithDictionary:action];
             [actions addObject:a];
         }
         self.actions = actions;
@@ -80,10 +80,10 @@
     return self;
 }
 
--(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *, Siren_Entity *))block {
+-(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *, SHMEntity *))block {
     NSString * method = @"GET";
     NSString * href = nil;
-    for (Siren_Link *link in self.links) {
+    for (SHMLink *link in self.links) {
         for (NSString *rel in link.rel) {
             if ([linkRel isEqualToString:rel]) {
                 href = link.href;
@@ -107,7 +107,7 @@
                                        NSError *err = [[NSError alloc] initWithDomain:@"siren" code:res.statusCode userInfo:@{NSLocalizedDescriptionKey: @"Request error. Code is HTTP Status Code."}];
                                        block(err, nil);
                                    } else {
-                                       Siren_Entity *entity = [[Siren_Entity alloc] initWithData:data];
+                                       SHMEntity *entity = [[SHMEntity alloc] initWithData:data];
                                        block(nil, entity);
                                    }
                                }];
@@ -118,8 +118,8 @@
 
 }
 
--(Siren_Action *) getSirenAction:(NSString *)name {
-    for (Siren_Action *action in self.actions) {
+-(SHMAction *) getSirenAction:(NSString *)name {
+    for (SHMAction *action in self.actions) {
         if ([action.name isEqualToString:name]) {
             return action;
         }

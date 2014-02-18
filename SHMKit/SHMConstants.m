@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "Constants.h"
+#import "SHMConstants.h"
 
 NSString *const GETVERB = @"GET";
 
-@implementation Constants
+@implementation SHMConstants
 
 @end

@@ -6,18 +6,18 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "Siren_Action.h"
-#import "Siren_Action_Field.h"
-#import "URL_Helper.h"
-#import "Siren_Action_Data_Helper.h"
-#import "Constants.h"
-#import "Siren_Action+Siren_Action_Request_Builder.h"
+#import "SHMAction.h"
+#import "SHMActionField.h"
+#import "SHMUrlHelper.h"
+#import "SHMActionDataHelper.h"
+#import "SHMConstants.h"
+#import "SHMAction+SHMActionRequestBuilder.h"
 
-@interface Siren_Action()
+@interface SHMAction()
 
 @end
 
-@implementation Siren_Action
+@implementation SHMAction
 
 -(id) initWithDictionary:(NSDictionary *)data {
     if (self = [super init]) {
@@ -31,14 +31,14 @@
         }
         
         if ([data objectForKey:@"method"] != nil) {
-            self.method = [Siren_Action verbFromString:data[@"method"]];
+            self.method = [SHMAction verbFromString:data[@"method"]];
         } else {
-            self.method = [Siren_Action verbFromString:GETVERB];
+            self.method = [SHMAction verbFromString:GETVERB];
         }
         
         NSMutableArray *actionFields = [[NSMutableArray alloc] init];
         for (NSDictionary *f in data[@"properties"]) {
-            Siren_Action_Field *field = [[Siren_Action_Field alloc] initWithDictionary:f];
+            SHMActionField *field = [[SHMActionField alloc] initWithDictionary:f];
             [actionFields addObject:field];
         }
         self.fields = actionFields;

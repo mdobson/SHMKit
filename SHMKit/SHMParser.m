@@ -6,13 +6,13 @@
 //  Copyright (c) 2014 Matthew Dobson. All rights reserved.
 //
 
-#import "Siren_Parser.h"
+#import "SHMParser.h"
 
-@interface Siren_Parser()
+@interface SHMParser()
 
 @end
 
-@implementation Siren_Parser
+@implementation SHMParser
 
 -(id) initWithSirenRoot:(NSString *)endpoint {
     if (self = [super init]) {
@@ -21,7 +21,7 @@
     return self;
 }
 
--(void) retrieveRoot:(void (^)(NSError *, Siren_Entity *))block {
+-(void) retrieveRoot:(void (^)(NSError *, SHMEntity *))block {
     NSString *method = @"GET";
     NSURL * url = [[NSURL alloc] initWithString:self.endpoint];
     NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -34,7 +34,7 @@
                                    NSError *err = [[NSError alloc] initWithDomain:@"siren" code:res.statusCode userInfo:@{NSLocalizedDescriptionKey: @"Request error. Code is HTTP Status Code."}];
                                    block(err, nil);
                                } else {
-                                   Siren_Entity *entity = [[Siren_Entity alloc] initWithData:data];
+                                   SHMEntity *entity = [[SHMEntity alloc] initWithData:data];
                                    block(nil, entity);
                                }
                            }];

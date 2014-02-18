@@ -23,6 +23,6 @@ typedef NS_ENUM(NSInteger, HTTP_VERB) {
 };
 
 
-@interface Constants : NSObject
+@interface SHMConstants : NSObject
 
 @end

@@ -7,13 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "URL_Helper.h"
+#import "SHMUrlHelper.h"
 
-@interface URL_HelperTests : XCTestCase
+@interface SHMURLHelperTests : XCTestCase
 
 @end
 
-@implementation URL_HelperTests
+@implementation SHMURLHelperTests
 
 - (void)setUp
 {
@@ -30,14 +30,14 @@
 - (void)testComponentsEncoded
 {
     NSDictionary *components = @{@"one":@"1", @"two":@2};
-    NSString * encoded = [URL_Helper encodeQueryData:components];
+    NSString * encoded = [SHMUrlHelper encodeQueryData:components];
     XCTAssert([encoded isEqualToString:@"one=1&two=2"], @"Encoding failed with val: %@", encoded);
 }
 
 - (void)testComponentsEncodedWithPercents
 {
     NSDictionary *components = @{@"one":@" 1 ", @"two":@2};
-    NSString * encoded = [URL_Helper encodeQueryData:components];
+    NSString * encoded = [SHMUrlHelper encodeQueryData:components];
     XCTAssert([encoded isEqualToString:@"one=%201%20&two=2"], @"Encoding failed with val: %@", encoded);
 }
 
@@ -45,7 +45,7 @@
 {
     NSString *root = @"http://www.example.com";
     NSDictionary *components = @{@"one":@"1", @"two":@2};
-    NSString *url = [URL_Helper encodeUrl:root withDictParams:components];
+    NSString *url = [SHMUrlHelper encodeUrl:root withDictParams:components];
     XCTAssert([url isEqualToString:@"http://www.example.com?one=1&two=2"], @"Encoding failed with val: %@", url);
 }
 
