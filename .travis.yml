@@ -1,3 +1,4 @@
 language: objective-c
 xcode_project: SHMKit.xcodeproj
 xcode_scheme: SHMKit
+xcode_sdk: iphonesimulator
