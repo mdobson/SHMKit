@@ -1,5 +1,8 @@
 ##Siren parser for Objective-C
 
+### Build Status
+[![Build Status](https://travis-ci.org/mdobson/SHMKit.png?branch=master)](https://travis-ci.org/mdobson/SHMKit)
+
 SHMKit is a Siren Hypermedia Library for iOS. It will allow you to perform actions, and navigate a Siren API with ease.
 
 ### Getting Started
