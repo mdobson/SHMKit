@@ -22,17 +22,23 @@
 		F51CDF6618B30B77005722B2 /* SHMLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5C18B30B77005722B2 /* SHMLinkTests.m */; };
 		F51CDF6718B30B77005722B2 /* SHMEntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5D18B30B77005722B2 /* SHMEntityTests.m */; };
 		F51CDF6818B30B77005722B2 /* SHMParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5E18B30B77005722B2 /* SHMParserTests.m */; };
-		F51CDF6918B30BA8005722B2 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C806189DE02700602FB0 /* XCTest.framework */; };
 		F51CDF8018B30CDD005722B2 /* SHMActionRequestBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5918B30B77005722B2 /* SHMActionRequestBuilderTests.m */; };
 		F51CDF8118B30CDD005722B2 /* SHMActionDataHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5A18B30B77005722B2 /* SHMActionDataHelperTests.m */; };
 		F51CDF8218B30CDD005722B2 /* SHMURLHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5B18B30B77005722B2 /* SHMURLHelperTests.m */; };
 		F51CDF8318B30CDD005722B2 /* SHMLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5C18B30B77005722B2 /* SHMLinkTests.m */; };
 		F51CDF8418B30CDD005722B2 /* SHMEntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5D18B30B77005722B2 /* SHMEntityTests.m */; };
 		F51CDF8518B30CDD005722B2 /* SHMParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5E18B30B77005722B2 /* SHMParserTests.m */; };
+		F5D45FAD18B431C100F5749B /* SHMAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4218B30B4F005722B2 /* SHMAction.h */; };
+		F5D45FAE18B431C100F5749B /* SHMConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4318B30B4F005722B2 /* SHMConstants.h */; };
+		F5D45FAF18B431C100F5749B /* SHMActionDataHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4518B30B4F005722B2 /* SHMActionDataHelper.h */; };
+		F5D45FB018B431C100F5749B /* SHMUrlHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4718B30B4F005722B2 /* SHMUrlHelper.h */; };
+		F5D45FB118B431C100F5749B /* SHMActionField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4918B30B4F005722B2 /* SHMActionField.h */; };
+		F5D45FB218B431C100F5749B /* SHMEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4B18B30B4F005722B2 /* SHMEntity.h */; };
+		F5D45FB318B431C100F5749B /* SHMLink.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4C18B30B4F005722B2 /* SHMLink.h */; };
+		F5D45FB418B431C100F5749B /* SHMParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4D18B30B4F005722B2 /* SHMParser.h */; };
 		F5E5C7F9189DE02600602FB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F8189DE02600602FB0 /* Foundation.framework */; };
 		F5E5C807189DE02700602FB0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C806189DE02700602FB0 /* XCTest.framework */; };
 		F5E5C808189DE02700602FB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F8189DE02600602FB0 /* Foundation.framework */; };
-		F5E5C80A189DE02700602FB0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C809189DE02700602FB0 /* UIKit.framework */; };
 		F5E5C80D189DE02700602FB0 /* libSHMKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F5189DE02600602FB0 /* libSHMKit.a */; };
 /* End PBXBuildFile section */
 
@@ -49,10 +55,18 @@
 /* Begin PBXCopyFilesBuildPhase section */
 		F5E5C7F3189DE02600602FB0 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				F5D45FAD18B431C100F5749B /* SHMAction.h in CopyFiles */,
+				F5D45FAE18B431C100F5749B /* SHMConstants.h in CopyFiles */,
+				F5D45FAF18B431C100F5749B /* SHMActionDataHelper.h in CopyFiles */,
+				F5D45FB018B431C100F5749B /* SHMUrlHelper.h in CopyFiles */,
+				F5D45FB118B431C100F5749B /* SHMActionField.h in CopyFiles */,
+				F5D45FB218B431C100F5749B /* SHMEntity.h in CopyFiles */,
+				F5D45FB318B431C100F5749B /* SHMLink.h in CopyFiles */,
+				F5D45FB418B431C100F5749B /* SHMParser.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,7 +104,6 @@
 		F5E5C7F8189DE02600602FB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5E5C805189DE02700602FB0 /* SHMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E5C806189DE02700602FB0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		F5E5C809189DE02700602FB0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +111,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F51CDF6918B30BA8005722B2 /* XCTest.framework in Frameworks */,
 				F5E5C7F9189DE02600602FB0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -108,7 +120,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5E5C807189DE02700602FB0 /* XCTest.framework in Frameworks */,
-				F5E5C80A189DE02700602FB0 /* UIKit.framework in Frameworks */,
 				F5E5C80D189DE02700602FB0 /* libSHMKit.a in Frameworks */,
 				F5E5C808189DE02700602FB0 /* Foundation.framework in Frameworks */,
 			);
@@ -150,7 +161,6 @@
 			children = (
 				F5E5C7F8189DE02600602FB0 /* Foundation.framework */,
 				F5E5C806189DE02700602FB0 /* XCTest.framework */,
-				F5E5C809189DE02700602FB0 /* UIKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

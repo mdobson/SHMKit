@@ -43,6 +43,4 @@ typedef NS_ENUM(NSInteger, Siren_Field_Type) {
 
 -(id) initWithDictionary:(NSDictionary *)data;
 
--(id) render;
-
 @end
