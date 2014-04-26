@@ -22,6 +22,7 @@
 		F51CDF8318B30CDD005722B2 /* SHMLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5C18B30B77005722B2 /* SHMLinkTests.m */; };
 		F51CDF8418B30CDD005722B2 /* SHMEntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5D18B30B77005722B2 /* SHMEntityTests.m */; };
 		F51CDF8518B30CDD005722B2 /* SHMParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5E18B30B77005722B2 /* SHMParserTests.m */; };
+		F530D19C190B5A05009DD80A /* SHMActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F530D19B190B5A05009DD80A /* SHMActionTests.m */; };
 		F5D45FAD18B431C100F5749B /* SHMAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4218B30B4F005722B2 /* SHMAction.h */; };
 		F5D45FAE18B431C100F5749B /* SHMConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4318B30B4F005722B2 /* SHMConstants.h */; };
 		F5D45FAF18B431C100F5749B /* SHMActionDataHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4518B30B4F005722B2 /* SHMActionDataHelper.h */; };
@@ -94,6 +95,7 @@
 		F51CDF5E18B30B77005722B2 /* SHMParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMParserTests.m; path = SHMKitTests/SHMParserTests.m; sourceTree = SOURCE_ROOT; };
 		F51CDF6118B30B77005722B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F51CDF6218B30B77005722B2 /* SHMKitTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SHMKitTests-Info.plist"; path = "SHMKitTests/SHMKitTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F530D19B190B5A05009DD80A /* SHMActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMActionTests.m; sourceTree = SOURCE_ROOT; };
 		F5E5C7F5189DE02600602FB0 /* libSHMKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHMKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E5C7F8189DE02600602FB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5E5C805189DE02700602FB0 /* SHMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,6 +206,7 @@
 				F51CDF5D18B30B77005722B2 /* SHMEntityTests.m */,
 				F51CDF5E18B30B77005722B2 /* SHMParserTests.m */,
 				F5E5C80F189DE02700602FB0 /* Supporting Files */,
+				F530D19B190B5A05009DD80A /* SHMActionTests.m */,
 			);
 			name = SHMKitTests;
 			path = "Siren-ParserTests";
@@ -320,6 +323,7 @@
 				F51CDF8318B30CDD005722B2 /* SHMLinkTests.m in Sources */,
 				F51CDF8418B30CDD005722B2 /* SHMEntityTests.m in Sources */,
 				F51CDF8518B30CDD005722B2 /* SHMParserTests.m in Sources */,
+				F530D19C190B5A05009DD80A /* SHMActionTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
