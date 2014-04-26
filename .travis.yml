@@ -3,4 +3,4 @@ xcode_project: SHMKit.xcodeproj
 xcode_scheme: SHMKit
 xcode_sdk: iphonesimulator
 script:
-  - brew upgrade xctool
+  - brew update
