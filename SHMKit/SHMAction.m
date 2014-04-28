@@ -12,6 +12,7 @@
 #import "SHMActionDataHelper.h"
 #import "SHMConstants.h"
 #import "SHMAction+SHMActionRequestBuilder.h"
+#import "SHMEntity.h"
 
 @interface SHMAction()
 
@@ -49,7 +50,7 @@
 }
 
 
--(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, NSHTTPURLResponse*, NSData *))block {
+-(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, SHMEntity *))block {
     
     NSMutableURLRequest *request = [self constructRequest:fields];
     [NSURLConnection sendAsynchronousRequest:request
@@ -58,9 +59,10 @@
                                NSHTTPURLResponse * res = (NSHTTPURLResponse *)response;
                                if (res.statusCode < 200 || res.statusCode > 299) {
                                    NSError *err = [[NSError alloc] initWithDomain:@"siren" code:res.statusCode userInfo:@{NSLocalizedDescriptionKey: @"Request error. Code is HTTP Status Code."}];
-                                   block(err, nil, nil);
+                                   block(err, nil);
                                } else {
-                                   block(nil, res, data);
+                                   SHMEntity * entity = [[SHMEntity alloc] initWithData:data];
+                                   block(nil, entity);
                                }
                            }];
 }

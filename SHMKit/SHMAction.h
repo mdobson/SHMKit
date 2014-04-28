@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "SHMConstants.h"
+
+@class SHMEntity;
 @interface SHMAction : NSObject
 
 @property NSString *name;
@@ -19,6 +21,6 @@
 @property NSArray *fields;
 
 -(id) initWithDictionary:(NSDictionary *)data;
--(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, NSHTTPURLResponse*, NSData *))block;
+-(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, SHMEntity *))block;
 
 @end
