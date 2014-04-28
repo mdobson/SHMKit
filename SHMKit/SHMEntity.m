@@ -9,6 +9,7 @@
 #import "SHMEntity.h"
 #import "SHMLink.h"
 #import "SHMAction.h"
+#import "SHMHTTPHelper.h"
 
 @implementation SHMEntity
 
@@ -99,22 +100,7 @@
         NSURL *url = [[NSURL alloc] initWithString:href];
         NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
         req.HTTPMethod = method;
-        [NSURLConnection sendAsynchronousRequest:req
-                                           queue:[NSOperationQueue mainQueue]
-                               completionHandler:^(NSURLResponse *response, NSData *data, NSError *err){
-                                   NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-                                   NSDictionary *headers = [res allHeaderFields];
-                                   if (res.statusCode != 200) {
-                                       NSError *err = [[NSError alloc] initWithDomain:@"siren" code:res.statusCode userInfo:@{NSLocalizedDescriptionKey: @"Request error. Code is HTTP Status Code."}];
-                                       block(err, nil);
-                                   } else {
-                                       NSString *contentType = [headers objectForKey:@"Content-Type"];
-                                       if (contentType != nil && ([contentType isEqualToString:@"application/json"] || [contentType isEqualToString:@"application/vnd.siren+json"])) {
-                                           SHMEntity * entity = [[SHMEntity alloc] initWithData:data];
-                                           block(nil, entity);
-                                       }
-                                   }
-                               }];
+        [SHMHTTPHelper sendSirenRequest:req withBlock:block];
     } else {
         NSError *err = [[NSError alloc] initWithDomain:@"siren" code:1 userInfo:@{NSLocalizedDescriptionKey: @"No href to step to."}];
         block(err, nil);

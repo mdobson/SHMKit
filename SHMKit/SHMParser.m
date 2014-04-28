@@ -7,6 +7,7 @@
 //
 
 #import "SHMParser.h"
+#import "SHMHTTPHelper.h"
 
 @interface SHMParser()
 
@@ -26,22 +27,7 @@
     NSURL * url = [[NSURL alloc] initWithString:self.endpoint];
     NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
     req.HTTPMethod = method;
-    [NSURLConnection sendAsynchronousRequest:req
-                                       queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error){
-                               NSHTTPURLResponse *res = (NSHTTPURLResponse *)response;
-                               NSDictionary *headers = [res allHeaderFields];
-                               if (res.statusCode != 200) {
-                                   NSError *err = [[NSError alloc] initWithDomain:@"siren" code:res.statusCode userInfo:@{NSLocalizedDescriptionKey: @"Request error. Code is HTTP Status Code."}];
-                                   block(err, nil);
-                               } else {
-                                   NSString *contentType = [headers objectForKey:@"Content-Type"];
-                                   if (contentType != nil && ([contentType isEqualToString:@"application/json"] || [contentType isEqualToString:@"application/vnd.siren+json"])) {
-                                       SHMEntity * entity = [[SHMEntity alloc] initWithData:data];
-                                       block(nil, entity);
-                                   }
-                               }
-                           }];
+    [SHMHTTPHelper sendSirenRequest:req withBlock:block];
 }
 
 @end
