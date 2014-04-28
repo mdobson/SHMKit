@@ -10,6 +10,9 @@
 
 FOUNDATION_EXPORT NSString *const GETVERB;
 
+/*
+Enum for HTTP Verbs
+*/
 typedef NS_ENUM(NSInteger, HTTP_VERB) {
     GET,
     POST,

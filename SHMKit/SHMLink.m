@@ -10,6 +10,7 @@
 
 @implementation SHMLink
 
+
 -(id) initWithDictionary:(NSDictionary *)data {
     if (self = [super init]) {
         self.rel = data[@"rel"];

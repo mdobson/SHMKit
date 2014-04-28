@@ -10,8 +10,14 @@
 
 @interface SHMActionDataHelper : NSObject
 
+/*
+ Encode query data url style for siren action
+ */
 +(NSString *) encodeUrlData:(NSDictionary *)params;
 
+/*
+ Encode data JSON style for siren action.
+ */
 +(NSString *) encodeJSONData:(NSDictionary *)params withError:(NSError **)err;
 
 @end

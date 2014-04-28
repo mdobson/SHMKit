@@ -10,8 +10,14 @@
 
 @interface SHMUrlHelper : NSObject
 
+/*
+ Encoding query data for url string.
+ */
 +(NSString *)encodeQueryData:(NSDictionary *)params;
 
+/*
+ Encode complete url with query string.
+ */
 +(NSString *)encodeUrl:(NSString*)url withDictParams:(NSDictionary*)params;
 
 @end

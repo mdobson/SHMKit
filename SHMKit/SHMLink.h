@@ -13,6 +13,9 @@
 @property NSArray *rel;
 @property NSString *href;
 
+/*
+ Initialize a link relation object with a dictionary. This is for post parsing of siren entity. Internal use really.
+ */
 -(id) initWithDictionary:(NSDictionary*)data;
 
 @end

@@ -40,7 +40,6 @@
     return [lookup objectForKey:[NSNumber numberWithInt:verb]];
 }
 
-//I want to split this method up into two distinct methods. One for constructing bodyless verb requests and one for constructing requests with bodies.
 -(NSMutableURLRequest *) constructRequest:(NSDictionary *)dict {
     
     switch (self.method) {
@@ -91,6 +90,7 @@
     request.HTTPMethod = [SHMAction verbFromEnum:self.method];
     return request;
 }
+
 
 -(NSMutableURLRequest *) constructHTTPRequestWithParams:(NSDictionary *)dict {
     NSString * body = nil;

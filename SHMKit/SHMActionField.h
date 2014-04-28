@@ -41,6 +41,9 @@ typedef NS_ENUM(NSInteger, Siren_Field_Type) {
 @property Siren_Field_Type type;
 @property NSString *value;
 
+/*
+ Initializes an action field with an Enum type. Important for programmatically rendering data about an action.
+ */
 -(id) initWithDictionary:(NSDictionary *)data;
 
 @end

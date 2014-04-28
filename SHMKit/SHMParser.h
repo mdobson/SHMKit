@@ -13,8 +13,16 @@
 
 @property NSString *endpoint;
 
+
+/*
+Initializes a siren root. The endpoint parameter should be the entry point for your API. Ideally this should be placed in an App Delegate if possible.
+*/
 -(id) initWithSirenRoot:(NSString*)endpoint;
 
+
+/*
+Retrieves the root of your API Asynchronously. Pass in the block to get the first entity of your API.
+*/
 -(void) retrieveRoot:(void (^)(NSError *err, SHMEntity* entity))block;
 @end
 
