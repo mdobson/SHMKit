@@ -18,9 +18,11 @@ This represents the API entry point. Here you'll initialize your parser object w
 ##### Methods
 
 Initializes a siren root. The endpoint parameter should be the entry point for your API. Ideally this should be placed in an App Delegate if possible.
+
 ```-(id) initWithSirenRoot:(NSString*)endpoint;```
 
 Retrieves the root of your API Asynchronously. Pass in the block to get the first entity of your API.
+
 ```-(void) retrieveRoot:(void (^)(NSError *err, SHMEntity* entity))block;```
 
 
@@ -31,15 +33,19 @@ Represents a siren entity.
 ##### Methods
 
 Initialize a new Siren Entity with an NSData class. This is ideal for when you're making HTTP requests straight to the API.
+
 ```-(id) initWithData:(NSData *)data;```
 
 Init a siren entity with a dictionary. If you want to do parsing yourself, or are constructing siren entities in a NSDictionary on your end use this method.
+
 ```-(id) initWithDictionary:(NSDictionary *)json;```
 
 Async step to link relation in current entity. If relation isn't present then return error as first parameter to the block.
+
 ```-(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *error, SHMEntity *entity))block;```
 
 Get a specific siren action from the entity. If no action with that particular name is present return nil.
+
 ```-(SHMAction *) getSirenAction:(NSString *)name;```
 
 #### SHMLink
@@ -49,6 +55,7 @@ Represents a siren link relation.
 ##### Methods
 
 Initialize a link relation object with a dictionary. This is for post parsing of siren entity. Internal use really.
+
 ```-(id) initWithDictionary:(NSDictionary*)data;```
 
 #### SHMAction
@@ -58,12 +65,15 @@ Represents a siren action.
 ##### Methods
 
 Initialize a action object with a dictionary. This is for post parsing of siren entity. Internal use really.
+
 ```-(id) initWithDictionary:(NSDictionary *)data;```
 
 Perform the action with specific parameters. If no parameters pass in nil. Actions are performed asynchronously so the block will be necessary to get the next step in the API.
+
 ```-(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, SHMEntity *))block;```
 
 Perform the action with no parameters. Actions are performed asynchronously so the block will be necessary to get the next step in the API.
+
 ```-(void)performActionWithCompletion:(void (^)(NSError *, SHMEntity *))block;```
 
 #### SHMActionField
