@@ -103,6 +103,12 @@ Tests are written with the XCTest.framework. Simply open the test tab of the pro
 3. Do your codes
 4. Make a Pull Request
 
+### Roadmap
+
+1. Errors are silently ignored in some places. Need to add better error handling support.
+2. Add delegate pattern to library. It's exclusively using blocks.
+3. Add samples using the library.
+
 ### License
 
 Copyright 2014 Matthew Dobson and other contributors
