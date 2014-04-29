@@ -90,7 +90,7 @@
                        [museum stepToLinkRel:@"museums"
                               withCompletion:^(NSError *err, SHMEntity *entity){
                                   SHMAction *action = [entity getSirenAction:@"delete-museum"];
-                                  [action performActionWithFields:nil andCompletion:^(NSError *err, SHMEntity *ent) {
+                                  [action performActionWithCompletion:^(NSError *err, SHMEntity *ent) {
                                         XCTAssert(err == nil, @"No error.");
                                   }];
                               }];
