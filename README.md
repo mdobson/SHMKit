@@ -70,11 +70,11 @@ Initialize a action object with a dictionary. This is for post parsing of siren 
 
 Perform the action with specific parameters. If no parameters pass in nil. Actions are performed asynchronously so the block will be necessary to get the next step in the API.
 
-```-(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, SHMEntity *))block;```
+```-(void) performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, SHMEntity *))block;```
 
 Perform the action with no parameters. Actions are performed asynchronously so the block will be necessary to get the next step in the API.
 
-```-(void)performActionWithCompletion:(void (^)(NSError *, SHMEntity *))block;```
+```-(void) performActionWithCompletion:(void (^)(NSError *, SHMEntity *))block;```
 
 #### SHMActionField
 
