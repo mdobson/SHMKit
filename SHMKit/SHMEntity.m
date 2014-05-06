@@ -97,6 +97,7 @@
     }
     
     if (href != nil) {
+        href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *url = [[NSURL alloc] initWithString:href];
         NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
         req.HTTPMethod = method;

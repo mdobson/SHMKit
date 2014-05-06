@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F50680B1190E0B5100980DBC /* SHMActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50680B0190E0B5100980DBC /* SHMActionTests.m */; };
 		F51CDF5018B30B4F005722B2 /* SHMEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3D18B30B4F005722B2 /* SHMEntity.m */; };
 		F51CDF5118B30B4F005722B2 /* SHMLink.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3E18B30B4F005722B2 /* SHMLink.m */; };
 		F51CDF5218B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3F18B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.m */; };
@@ -315,7 +314,6 @@
 				F51CDF5418B30B4F005722B2 /* SHMConstants.m in Sources */,
 				F51CDF5218B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.m in Sources */,
 				F51CDF5118B30B4F005722B2 /* SHMLink.m in Sources */,
-				F50680B1190E0B5100980DBC /* SHMActionTests.m in Sources */,
 				F51CDF5718B30B4F005722B2 /* SHMActionField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
