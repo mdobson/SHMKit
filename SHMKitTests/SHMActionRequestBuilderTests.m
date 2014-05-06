@@ -103,6 +103,11 @@
     }];
 }
 
+
+-(void)testVerbConversion {
+    HTTP_VERB verb = [SHMAction verbFromString:@"FOO"];
+    XCTAssert(verb == 0, @"Bad verb returns zero");
+}
 //- (void)testBuildPATCH
 //{
 //    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
