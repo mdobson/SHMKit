@@ -19,6 +19,8 @@
 
 @end
 
+NSString const * urlEncoded = @"application/x-www-form-urlencoded";
+
 @implementation SHMAction
 
 -(id) initWithDictionary:(NSDictionary *)data {
@@ -26,7 +28,12 @@
         self.name = data[@"name"];
         self.class = data[@"class"];
         self.href = data[@"href"];
-        self.type = data[@"type"];
+        
+        if (data[@"type"] == nil) {
+            self.type = urlEncoded;
+        } else {
+            self.type = data[@"type"];
+        }
         
         if ([data objectForKey:@"title"] != nil) {
             self.title = data[@"title"];

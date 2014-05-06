@@ -98,7 +98,7 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
     
     if ([dict count] > 0) {
-        if ([self.type isEqualToString:@"application/json"]) {
+        if (self.type != nil && [self.type isEqualToString:@"application/json"]) {
             body = [SHMActionDataHelper encodeJSONData:dict withError:nil];
             [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
         } else {
