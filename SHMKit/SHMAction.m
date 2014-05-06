@@ -40,7 +40,7 @@
         }
         
         NSMutableArray *actionFields = [[NSMutableArray alloc] init];
-        for (NSDictionary *f in data[@"properties"]) {
+        for (NSDictionary *f in data[@"fields"]) {
             SHMActionField *field = [[SHMActionField alloc] initWithDictionary:f];
             [actionFields addObject:field];
         }
