@@ -32,8 +32,9 @@
             self.title = data[@"title"];
         }
         
-        if ([data objectForKey:@"method"] != nil) {
-            self.method = [SHMAction verbFromString:data[@"method"]];
+        self.methodString = [data objectForKey:@"method"];
+        if (self.methodString != nil) {
+            self.method = [SHMAction verbFromString:self.methodString];
         } else {
             self.method = [SHMAction verbFromString:GETVERB];
         }

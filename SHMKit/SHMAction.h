@@ -19,6 +19,7 @@
 @property NSString *title;
 @property NSString *type;
 @property NSArray *fields;
+@property NSString *methodString;
 
 /*
  Initialize a action object with a dictionary. This is for post parsing of siren entity. Internal use really.
