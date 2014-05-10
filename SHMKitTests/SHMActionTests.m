@@ -11,6 +11,7 @@
 #import "SHMAction+SHMActionRequestBuilder.h"
 #import "SHMParser.h"
 #import "SHMEntity.h"
+#import "SHMActionField.h"
 
 @interface SHMActionTests : XCTestCase
 
@@ -97,6 +98,24 @@
                    }];
                }];
     }];
+}
+
+- (void)testFieldParsing {
+    NSString *url = @"http://msiren.herokuapp.com/";
+    SHMParser *parser = [[SHMParser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, SHMEntity* entity){
+        [entity stepToLinkRel:@"museums"
+               withCompletion:^(NSError *err, SHMEntity *entity){
+                   SHMAction *action = [entity getSirenAction:@"get-museums"];
+
+                   XCTAssert(action.fields.count == 2, @"Improper number of fields");
+                   SHMActionField *query = action.fields[0];
+                   SHMActionField *limit = action.fields[1];
+                   XCTAssert([query.name isEqualToString:@"query"], @"Improper name for query");
+                   XCTAssert([limit.name isEqualToString:@"limit"], @"Improper name for limit");
+                }];
+    }];
+
 }
 
 @end
