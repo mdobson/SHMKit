@@ -22,7 +22,8 @@
 		F51CDF8318B30CDD005722B2 /* SHMLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5C18B30B77005722B2 /* SHMLinkTests.m */; };
 		F51CDF8418B30CDD005722B2 /* SHMEntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5D18B30B77005722B2 /* SHMEntityTests.m */; };
 		F51CDF8518B30CDD005722B2 /* SHMParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5E18B30B77005722B2 /* SHMParserTests.m */; };
-		F5796A45191EC3FE0054E668 /* SHMTestEntityFactoryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5796A44191EC3FE0054E668 /* SHMTestEntityFactoryDelegate.m */; };
+		F5796A46191EC9760054E668 /* SHMEntityFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59C9E0D190E8F4B00F4EA94 /* SHMEntityFactory.h */; };
+		F5796A47191EC9760054E668 /* SHMEntityFactoryDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5796A42191EC0240054E668 /* SHMEntityFactoryDelegate.h */; };
 		F59C9E0F190E8F4B00F4EA94 /* SHMEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F59C9E0E190E8F4B00F4EA94 /* SHMEntityFactory.m */; };
 		F5C2CE4B191E7E51003CC049 /* SHMActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50680B0190E0B5100980DBC /* SHMActionTests.m */; };
 		F5D45FAD18B431C100F5749B /* SHMAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4218B30B4F005722B2 /* SHMAction.h */; };
@@ -56,6 +57,8 @@
 			dstPath = "include/$(PRODUCT_NAME)";
 			dstSubfolderSpec = 16;
 			files = (
+				F5796A46191EC9760054E668 /* SHMEntityFactory.h in CopyFiles */,
+				F5796A47191EC9760054E668 /* SHMEntityFactoryDelegate.h in CopyFiles */,
 				F5D45FAD18B431C100F5749B /* SHMAction.h in CopyFiles */,
 				F5D45FAE18B431C100F5749B /* SHMConstants.h in CopyFiles */,
 				F5D45FAF18B431C100F5749B /* SHMActionDataHelper.h in CopyFiles */,
@@ -321,7 +324,6 @@
 				F51CDF5518B30B4F005722B2 /* SHMActionDataHelper.m in Sources */,
 				F51CDF5418B30B4F005722B2 /* SHMConstants.m in Sources */,
 				F51CDF5218B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.m in Sources */,
-				F5796A45191EC3FE0054E668 /* SHMTestEntityFactoryDelegate.m in Sources */,
 				F51CDF5118B30B4F005722B2 /* SHMLink.m in Sources */,
 				F51CDF5718B30B4F005722B2 /* SHMActionField.m in Sources */,
 			);
