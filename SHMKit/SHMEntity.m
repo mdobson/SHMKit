@@ -9,7 +9,7 @@
 #import "SHMEntity.h"
 #import "SHMLink.h"
 #import "SHMAction.h"
-#import "SHMHTTPHelper.h"
+#import "SHMEntityFactory.h"
 
 @implementation SHMEntity
 
@@ -101,7 +101,7 @@
         NSURL *url = [[NSURL alloc] initWithString:href];
         NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
         req.HTTPMethod = method;
-        [SHMHTTPHelper sendSirenRequest:req withBlock:block];
+        [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
     } else {
         NSError *err = [[NSError alloc] initWithDomain:@"siren" code:1 userInfo:@{NSLocalizedDescriptionKey: @"No href to step to."}];
         block(err, nil);

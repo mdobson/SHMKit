@@ -13,7 +13,7 @@
 #import "SHMConstants.h"
 #import "SHMAction+SHMActionRequestBuilder.h"
 #import "SHMEntity.h"
-#import "SHMHTTPHelper.h"
+#import "SHMEntityFactory.h"
 
 @interface SHMAction()
 
@@ -61,12 +61,12 @@ NSString const * urlEncoded = @"application/x-www-form-urlencoded";
 -(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, SHMEntity *))block {
     
     NSMutableURLRequest *request = [self constructRequest:fields];
-    [SHMHTTPHelper sendSirenRequest:request withBlock:block];
+    [[SHMEntityFactory sharedFactory] sendSirenRequest:request withBlock:block];
 }
 
 -(void)performActionWithCompletion:(void (^)(NSError *, SHMEntity *))block {
     
     NSMutableURLRequest *request = [self constructRequest:nil];
-    [SHMHTTPHelper sendSirenRequest:request withBlock:block];
+    [[SHMEntityFactory sharedFactory] sendSirenRequest:request withBlock:block];
 }
 @end
