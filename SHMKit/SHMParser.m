@@ -7,7 +7,7 @@
 //
 
 #import "SHMParser.h"
-#import "SHMHTTPHelper.h"
+#import "SHMEntityFactory.h"
 
 @interface SHMParser()
 
@@ -27,7 +27,7 @@
     NSURL * url = [[NSURL alloc] initWithString:self.endpoint];
     NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
     req.HTTPMethod = method;
-    [SHMHTTPHelper sendSirenRequest:req withBlock:block];
+    [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
 }
 
 @end

@@ -12,6 +12,9 @@
 #import "SHMParser.h"
 #import "SHMEntity.h"
 #import "SHMActionField.h"
+#import "SHMEntityFactoryDelegate.h"
+#import "SHMEntityFactory.h"
+#import "SHMTestEntityFactoryDelegate.h"
 
 @interface SHMActionTests : XCTestCase
 
@@ -22,6 +25,7 @@
 - (void)setUp
 {
     [super setUp];
+    [[SHMEntityFactory sharedFactory] setDelegate:[[SHMTestEntityFactoryDelegate alloc] init]];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -41,6 +45,9 @@
                    SHMAction *action = [entity getSirenAction:@"add-museum"];
                    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"DIA", @"museum", @"5200 Woodward Ave.", @"address", @"Detroit", @"city", nil];
                    [action performActionWithFields:dict andCompletion:^(NSError *err, SHMEntity *ent) {
+                       SHMEntityFactory *factory = [SHMEntityFactory sharedFactory];
+                       XCTAssert(factory != nil, @"Factory isn't nil");
+                       XCTAssert(factory.delegate != nil, @"Factory delegate isn't nil");
                        XCTAssert(err == nil, @"No error.");
                        XCTAssert([ent.class count] == 1, @"Class amount is incorrect");
                        XCTAssert([ent.entities count] == 0, @"Class amount is incorrect");
@@ -65,6 +72,9 @@
                    SHMAction *action = [entity getSirenAction:@"get-museums"];
                    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"where museum='DIA'", @"query", @"5", @"limit", nil];
                    [action performActionWithFields:dict andCompletion:^(NSError *err, SHMEntity *ent) {
+                       SHMEntityFactory *factory = [SHMEntityFactory sharedFactory];
+                       XCTAssert(factory != nil, @"Factory isn't nil");
+                       XCTAssert(factory.delegate != nil, @"Factory delegate isn't nil");
                        XCTAssert(err == nil, @"No error.");
                        XCTAssert([ent.class count] == 2, @"Class amount is incorrect");
                        XCTAssert([ent.entities count] == 1, @"Class amount is incorrect");
@@ -86,6 +96,9 @@
                    SHMAction *action = [entity getSirenAction:@"get-museums"];
                    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"where museum='DIA'", @"query", @"5", @"limit", nil];
                    [action performActionWithFields:dict andCompletion:^(NSError *err, SHMEntity *ent) {
+                       SHMEntityFactory *factory = [SHMEntityFactory sharedFactory];
+                       XCTAssert(factory != nil, @"Factory isn't nil");
+                       XCTAssert(factory.delegate != nil, @"Factory delegate isn't nil");
                        XCTAssert(err == nil, @"No error.");
                        SHMEntity *museum = ent.entities[0];
                        [museum stepToLinkRel:@"museums"
@@ -107,7 +120,7 @@
         [entity stepToLinkRel:@"museums"
                withCompletion:^(NSError *err, SHMEntity *entity){
                    SHMAction *action = [entity getSirenAction:@"get-museums"];
-
+                   
                    XCTAssert(action.fields.count == 2, @"Improper number of fields");
                    SHMActionField *query = action.fields[0];
                    SHMActionField *limit = action.fields[1];
