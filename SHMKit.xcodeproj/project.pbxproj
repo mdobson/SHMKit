@@ -24,6 +24,7 @@
 		F51CDF8518B30CDD005722B2 /* SHMParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5E18B30B77005722B2 /* SHMParserTests.m */; };
 		F5796A46191EC9760054E668 /* SHMEntityFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59C9E0D190E8F4B00F4EA94 /* SHMEntityFactory.h */; };
 		F5796A47191EC9760054E668 /* SHMEntityFactoryDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5796A42191EC0240054E668 /* SHMEntityFactoryDelegate.h */; };
+		F5796A48191ECB2B0054E668 /* SHMTestEntityFactoryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5796A44191EC3FE0054E668 /* SHMTestEntityFactoryDelegate.m */; };
 		F59C9E0F190E8F4B00F4EA94 /* SHMEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F59C9E0E190E8F4B00F4EA94 /* SHMEntityFactory.m */; };
 		F5C2CE4B191E7E51003CC049 /* SHMActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50680B0190E0B5100980DBC /* SHMActionTests.m */; };
 		F5D45FAD18B431C100F5749B /* SHMAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4218B30B4F005722B2 /* SHMAction.h */; };
@@ -333,6 +334,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5796A48191ECB2B0054E668 /* SHMTestEntityFactoryDelegate.m in Sources */,
 				F5C2CE4B191E7E51003CC049 /* SHMActionTests.m in Sources */,
 				F51CDF8018B30CDD005722B2 /* SHMActionRequestBuilderTests.m in Sources */,
 				F51CDF8118B30CDD005722B2 /* SHMActionDataHelperTests.m in Sources */,
