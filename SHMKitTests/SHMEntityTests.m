@@ -55,4 +55,20 @@
     }];
 }
 
+-(void)testHasLinkRel {
+    NSString *url = @"http://msiren.herokuapp.com/";
+    SHMParser *parser = [[SHMParser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, SHMEntity* entity){
+        XCTAssert([entity hasLinkRel:@"museums"] == YES, @"Should have this link rel");
+    }];
+}
+
+-(void)testHasNoLinkRel {
+    NSString *url = @"http://msiren.herokuapp.com/";
+    SHMParser *parser = [[SHMParser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, SHMEntity* entity){
+        XCTAssert([entity hasLinkRel:@"foo"] == NO, @"Should not have this link rel");
+    }];
+}
+
 @end

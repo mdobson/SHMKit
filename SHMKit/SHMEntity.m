@@ -119,5 +119,21 @@
     return nil;
 }
 
+-(BOOL) hasLinkRel:(NSString *)linkRel {
+    BOOL hasLink = NO;
+    for (SHMLink *link in self.links) {
+        for (NSString *rel in link.rel) {
+            if ([rel isEqualToString:linkRel]) {
+                hasLink = YES;
+                break;
+            }
+        }
+        if (hasLink == YES) {
+            break;
+        }
+    }
+    return hasLink;
+}
+
 
 @end

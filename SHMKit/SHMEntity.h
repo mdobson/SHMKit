@@ -38,4 +38,9 @@
  */
 -(SHMAction *) getSirenAction:(NSString *)name;
 
+/*
+ Check if we have a link in the siren document.
+ */
+-(BOOL) hasLinkRel:(NSString *)linkRel;
+
 @end
