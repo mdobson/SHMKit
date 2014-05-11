@@ -32,7 +32,7 @@
     
 }
 
--(void) sendSirenRequest:(NSMutableURLRequest *)req withBlock:(SirenHTTPResult)block
+-(void) sendSirenRequest:(NSURLRequest *)req withBlock:(SirenHTTPResult)block
 {
     [NSURLConnection sendAsynchronousRequest:req
                                        queue:[NSOperationQueue mainQueue]

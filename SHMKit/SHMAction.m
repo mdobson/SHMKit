@@ -60,13 +60,13 @@ NSString const * urlEncoded = @"application/x-www-form-urlencoded";
 
 -(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, SHMEntity *))block {
     
-    NSMutableURLRequest *request = [[SHMRequestFactory sharedFactory] constructRequest:fields forAction:self];
+    NSURLRequest *request = [[SHMRequestFactory sharedFactory] constructRequestForAction:self withParams:fields];
     [[SHMEntityFactory sharedFactory] sendSirenRequest:request withBlock:block];
 }
 
 -(void)performActionWithCompletion:(void (^)(NSError *, SHMEntity *))block {
     
-    NSMutableURLRequest *request = [[SHMRequestFactory sharedFactory] constructRequest:nil forAction:self];
+    NSURLRequest *request = [[SHMRequestFactory sharedFactory] constructRequestForAction:self withParams:nil];
     [[SHMEntityFactory sharedFactory] sendSirenRequest:request withBlock:block];
 }
 @end

@@ -18,6 +18,6 @@ typedef void (^SirenHTTPResult) (NSError *error, SHMEntity *entity);
 
 +(id) sharedFactory;
 
--(void) sendSirenRequest:(NSMutableURLRequest *)req withBlock:(void (^)(NSError *error, SHMEntity *entity))block;
+-(void) sendSirenRequest:(NSURLRequest *)req withBlock:(void (^)(NSError *error, SHMEntity *entity))block;
 
 @end
