@@ -9,6 +9,7 @@
 #import "SHMRequestFactory.h"
 #import "SHMUrlHelper.h"
 #import "SHMActionDataHelper.h"
+#import "SHMRequestFactoryDelegate.h"
 
 @implementation SHMRequestFactory
 
@@ -32,35 +33,35 @@
     
 }
 
--(NSMutableURLRequest *) constructRequest:(NSDictionary *)dict forAction:(SHMAction *)action{
+-(NSURLRequest *) constructRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict{
     
     switch (action.method) {
         case GET:
-            return [self constructBodylessHTTPRequestWithParams:dict forAction:action];
+            return [self constructBodylessHTTPRequestForAction:action withParams:dict];
             break;
         case HEAD:
-            return [self constructBodylessHTTPRequestWithParams:dict forAction:action];
+            return [self constructBodylessHTTPRequestForAction:action withParams:dict];
             break;
         case POST:
-            return [self constructHTTPRequestWithParams:dict forAction:action];
+            return [self constructHTTPRequestForAction:action withParams:dict];
             break;
         case PUT:
-            return [self constructHTTPRequestWithParams:dict forAction:action];
+            return [self constructHTTPRequestForAction:action withParams:dict];
             break;
         case TRACE:
-            return [self constructBodylessHTTPRequestWithParams:dict forAction:action];
+            return [self constructBodylessHTTPRequestForAction:action withParams:dict];
             break;
         case DELETE:
-            return [self constructBodylessHTTPRequestWithParams:dict forAction:action];
+            return [self constructBodylessHTTPRequestForAction:action withParams:dict];
             break;
         case PATCH:
-            return [self constructHTTPRequestWithParams:dict forAction:action];
+            return [self constructHTTPRequestForAction:action withParams:dict];
             break;
         case OPTIONS:
-            return [self constructBodylessHTTPRequestWithParams:dict forAction:action];
+            return [self constructBodylessHTTPRequestForAction:action withParams:dict];
             break;
         case CONNECT:
-            return [self constructBodylessHTTPRequestWithParams:dict forAction:action];
+            return [self constructBodylessHTTPRequestForAction:action withParams:dict];
             break;
         default:
             break;
@@ -68,43 +69,51 @@
     
 }
 
--(NSMutableURLRequest *) constructBodylessHTTPRequestWithParams:(NSDictionary *)dict forAction:(SHMAction *)action{
+-(NSURLRequest *) constructHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict{
     
-    NSString * constructedUrl = nil;
-    if ([dict count] > 0) {
-        constructedUrl = [SHMUrlHelper encodeUrl:action.href withDictParams:dict];
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(buildRequestForAction:withParameters:)]) {
+        return [self.delegate buildRequestForAction:action withParameters:dict];
     } else {
-        constructedUrl = action.href;
+        NSString * constructedUrl = nil;
+        if ([dict count] > 0) {
+            constructedUrl = [SHMUrlHelper encodeUrl:action.href withDictParams:dict];
+        } else {
+            constructedUrl = action.href;
+        }
+        
+        NSURL *urlObj = [[NSURL alloc] initWithString:constructedUrl];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
+        request.HTTPMethod = [SHMConstants verbFromEnum:action.method];
+        return request;
     }
-    
-    NSURL *urlObj = [[NSURL alloc] initWithString:constructedUrl];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
-    request.HTTPMethod = [SHMConstants verbFromEnum:action.method];
-    return request;
 }
 
 
--(NSMutableURLRequest *) constructHTTPRequestWithParams:(NSDictionary *)dict forAction:(SHMAction *)action{
-    NSString * body = nil;
-    NSURL *urlObj = [[NSURL alloc] initWithString:action.href];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
-    
-    if ([dict count] > 0) {
-        if (action.type != nil && [action.type isEqualToString:@"application/json"]) {
-            body = [SHMActionDataHelper encodeJSONData:dict withError:nil];
-            [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        } else {
-            body = [SHMActionDataHelper encodeUrlData:dict];
-            [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+-(NSURLRequest *) constructBodylessHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict{
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(buildBodylessRequestForAction:withParameters:)]) {
+        return [self.delegate buildBodylessRequestForAction:action withParameters:dict];
+    } else {
+        NSString * body = nil;
+        NSURL *urlObj = [[NSURL alloc] initWithString:action.href];
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
+        
+        if ([dict count] > 0) {
+            if (action.type != nil && [action.type isEqualToString:@"application/json"]) {
+                body = [SHMActionDataHelper encodeJSONData:dict withError:nil];
+                [request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            } else {
+                body = [SHMActionDataHelper encodeUrlData:dict];
+                [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+            }
         }
+        
+        if (body != nil) {
+            [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
+        }
+        
+        request.HTTPMethod = [SHMConstants verbFromEnum:action.method];
+        return request;
     }
-    
-    if (body != nil) {
-        [request setHTTPBody:[body dataUsingEncoding:NSUTF8StringEncoding]];
-    }
-    
-    request.HTTPMethod = [SHMConstants verbFromEnum:action.method];
-    return request;
 }
 
 

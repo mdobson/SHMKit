@@ -8,24 +8,27 @@
 
 #import <Foundation/Foundation.h>
 #import "SHMAction.h"
+#import "SHMRequestFactoryDelegate.h"
 
 @interface SHMRequestFactory : NSObject
+
+@property (nonatomic, retain) id<SHMRequestFactoryDelegate> delegate;
 
 + (id)sharedFactory;
 
 /*
  Construct an HTTP request with a body or with URL parameters depending on the request verb itself.
  */
--(NSMutableURLRequest *) constructRequest:(NSDictionary *)dict forAction:(SHMAction *)action;
+-(NSURLRequest *) constructRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict;
 
 /*
  Create an HTTP request with a body instead of URL parameters. POST, PUT, PATCH.
  */
--(NSMutableURLRequest *) constructHTTPRequestWithParams:(NSDictionary *)dict forAction:(SHMAction *)action;
+-(NSURLRequest *) constructHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict;
 
 /*
  Create an http request that has URL parameters instead of parameters in the body. GET, DELETE, TRACE, HEAD, OPTIONS, CONNECT
  */
--(NSMutableURLRequest *) constructBodylessHTTPRequestWithParams:(NSDictionary *)dict forAction:(SHMAction *)action;
+-(NSURLRequest *) constructBodylessHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict;
 
 @end
