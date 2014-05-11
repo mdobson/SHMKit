@@ -8,9 +8,10 @@
 
 #import <XCTest/XCTest.h>
 #import "SHMAction.h"
-#import "SHMAction+SHMActionRequestBuilder.h"
+#import "SHMRequestFactory.h"
 #import "SHMParser.h"
 #import "SHMEntity.h"
+#import "SHMConstants.h"
 
 
 @interface SHMActionRequestBuilderTests : XCTestCase
@@ -40,7 +41,7 @@
                withCompletion:^(NSError *err, SHMEntity *entity){
                    SHMAction *action = [entity getSirenAction:@"get-museums"];
                    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"where museum='DIA'", @"query", @"5", @"limit", nil];
-                   NSMutableURLRequest *req = [action constructRequest:dict];
+                   NSMutableURLRequest *req = [[SHMRequestFactory sharedFactory] constructRequest:dict forAction:action];
                    XCTAssertTrue([req.HTTPMethod isEqualToString:@"GET"], @"Incorrect HTTP Method expecting GET had %@", req.HTTPMethod);
                    XCTAssertTrue([[req.URL absoluteString] isEqualToString:@"http://msiren.herokuapp.com/museums?query=where%20museum=%27DIA%27&limit=5"], @"Incorrect HTTP Method expecting GET had %@", req.HTTPMethod);
                }];
@@ -56,7 +57,7 @@
                withCompletion:^(NSError *err, SHMEntity *entity){
                    SHMAction *action = [entity getSirenAction:@"add-museum"];
                    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"DIA", @"museum", @"5200 Woodward Ave.", @"address", @"Detroit", @"city", nil];
-                   NSMutableURLRequest *req = [action constructRequest:dict];
+                   NSMutableURLRequest *req = [[SHMRequestFactory sharedFactory] constructRequest:dict forAction:action];
                    NSDictionary *d = [NSJSONSerialization JSONObjectWithData:req.HTTPBody options:kNilOptions error:nil];
                    XCTAssertTrue([d[@"museum"] isEqualToString:@"DIA"], @"Museum not DIA");
                    XCTAssertTrue([d[@"address"] isEqualToString:@"5200 Woodward Ave"], @"Museum not DIA");
@@ -76,7 +77,7 @@
                withCompletion:^(NSError *err, SHMEntity *entity){
                    SHMAction *action = [entity getSirenAction:@"update-museum"];
                    NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"DIA", @"museum", @"5200 Woodward Ave.", @"address", @"Detroit", @"city", nil];
-                   NSMutableURLRequest *req = [action constructRequest:dict];
+                   NSMutableURLRequest *req = [[SHMRequestFactory sharedFactory] constructRequest:dict forAction:action];
                    NSDictionary *d = [NSJSONSerialization JSONObjectWithData:req.HTTPBody options:kNilOptions error:nil];
                    XCTAssertTrue([d[@"museum"] isEqualToString:@"DIA"], @"Museum not DIA");
                    XCTAssertTrue([d[@"address"] isEqualToString:@"5200 Woodward Ave"], @"Museum not DIA");
@@ -96,7 +97,7 @@
                withCompletion:^(NSError *err, SHMEntity *entity){
                    SHMEntity *first = entity.entities[0];
                    SHMAction *action = [first getSirenAction:@"delete-museum"];
-                   NSMutableURLRequest *req = [action constructRequest:nil];
+                   NSMutableURLRequest *req = [[SHMRequestFactory sharedFactory] constructRequest:nil forAction:action];
                    XCTAssertTrue([[req.URL absoluteString] isEqualToString:action.href], @"HREF doesn't match");
                    XCTAssertTrue([req.HTTPMethod isEqualToString:@"DELETE"], @"Incorrect HTTP Method expecting DELETE had %@", req.HTTPMethod);
                }];
@@ -105,7 +106,7 @@
 
 
 -(void)testVerbConversion {
-    HTTP_VERB verb = [SHMAction verbFromString:@"FOO"];
+    HTTP_VERB verb = [SHMConstants verbFromString:@"FOO"];
     XCTAssert(verb == 0, @"Bad verb returns zero");
 }
 //- (void)testBuildPATCH

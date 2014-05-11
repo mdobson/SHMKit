@@ -28,4 +28,15 @@ typedef NS_ENUM(NSInteger, HTTP_VERB) {
 
 @interface SHMConstants : NSObject
 
+/*
+ Get an HTTP_VERB object from a string. Internal use only.
+ */
++ (HTTP_VERB) verbFromString:(NSString *)verb;
+
+/*
+ Get a string form an HTTP_VERB object. Internal use only.
+ */
++ (NSString *) verbFromEnum:(HTTP_VERB)verb;
+
+
 @end

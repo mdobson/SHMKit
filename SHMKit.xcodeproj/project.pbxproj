@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		F51CDF5018B30B4F005722B2 /* SHMEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3D18B30B4F005722B2 /* SHMEntity.m */; };
 		F51CDF5118B30B4F005722B2 /* SHMLink.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3E18B30B4F005722B2 /* SHMLink.m */; };
-		F51CDF5218B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3F18B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.m */; };
 		F51CDF5318B30B4F005722B2 /* SHMAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4018B30B4F005722B2 /* SHMAction.m */; };
 		F51CDF5418B30B4F005722B2 /* SHMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4418B30B4F005722B2 /* SHMConstants.m */; };
 		F51CDF5518B30B4F005722B2 /* SHMActionDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4618B30B4F005722B2 /* SHMActionDataHelper.m */; };
@@ -22,6 +21,7 @@
 		F51CDF8318B30CDD005722B2 /* SHMLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5C18B30B77005722B2 /* SHMLinkTests.m */; };
 		F51CDF8418B30CDD005722B2 /* SHMEntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5D18B30B77005722B2 /* SHMEntityTests.m */; };
 		F51CDF8518B30CDD005722B2 /* SHMParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5E18B30B77005722B2 /* SHMParserTests.m */; };
+		F552E4AC191FCDA500F70EB3 /* SHMRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F552E4AB191FCDA500F70EB3 /* SHMRequestFactory.m */; };
 		F5796A46191EC9760054E668 /* SHMEntityFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59C9E0D190E8F4B00F4EA94 /* SHMEntityFactory.h */; };
 		F59C9E0F190E8F4B00F4EA94 /* SHMEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F59C9E0E190E8F4B00F4EA94 /* SHMEntityFactory.m */; };
 		F5BC35CC191FC75B00A47118 /* SHMTestEntityFactoryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BC35CB191FC75B00A47118 /* SHMTestEntityFactoryDelegate.m */; };
@@ -75,9 +75,7 @@
 		F50680B0190E0B5100980DBC /* SHMActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMActionTests.m; path = SHMKitTests/SHMActionTests.m; sourceTree = SOURCE_ROOT; };
 		F51CDF3D18B30B4F005722B2 /* SHMEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMEntity.m; path = SHMKit/SHMEntity.m; sourceTree = SOURCE_ROOT; };
 		F51CDF3E18B30B4F005722B2 /* SHMLink.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMLink.m; path = SHMKit/SHMLink.m; sourceTree = SOURCE_ROOT; };
-		F51CDF3F18B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SHMAction+SHMActionRequestBuilder.m"; path = "SHMKit/SHMAction+SHMActionRequestBuilder.m"; sourceTree = SOURCE_ROOT; };
 		F51CDF4018B30B4F005722B2 /* SHMAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMAction.m; path = SHMKit/SHMAction.m; sourceTree = SOURCE_ROOT; };
-		F51CDF4118B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SHMAction+SHMActionRequestBuilder.h"; path = "SHMKit/SHMAction+SHMActionRequestBuilder.h"; sourceTree = SOURCE_ROOT; };
 		F51CDF4218B30B4F005722B2 /* SHMAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMAction.h; path = SHMKit/SHMAction.h; sourceTree = SOURCE_ROOT; };
 		F51CDF4318B30B4F005722B2 /* SHMConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMConstants.h; path = SHMKit/SHMConstants.h; sourceTree = SOURCE_ROOT; };
 		F51CDF4418B30B4F005722B2 /* SHMConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMConstants.m; path = SHMKit/SHMConstants.m; sourceTree = SOURCE_ROOT; };
@@ -100,6 +98,8 @@
 		F51CDF5E18B30B77005722B2 /* SHMParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMParserTests.m; path = SHMKitTests/SHMParserTests.m; sourceTree = SOURCE_ROOT; };
 		F51CDF6118B30B77005722B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F51CDF6218B30B77005722B2 /* SHMKitTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SHMKitTests-Info.plist"; path = "SHMKitTests/SHMKitTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F552E4AA191FCDA500F70EB3 /* SHMRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMRequestFactory.h; path = SHMKit/SHMRequestFactory.h; sourceTree = SOURCE_ROOT; };
+		F552E4AB191FCDA500F70EB3 /* SHMRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMRequestFactory.m; path = SHMKit/SHMRequestFactory.m; sourceTree = SOURCE_ROOT; };
 		F59C9E0D190E8F4B00F4EA94 /* SHMEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMEntityFactory.h; path = SHMKit/SHMEntityFactory.h; sourceTree = SOURCE_ROOT; };
 		F59C9E0E190E8F4B00F4EA94 /* SHMEntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMEntityFactory.m; path = SHMKit/SHMEntityFactory.m; sourceTree = SOURCE_ROOT; };
 		F5BC35CA191FC75B00A47118 /* SHMTestEntityFactoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMTestEntityFactoryDelegate.h; path = SHMKitTests/SHMTestEntityFactoryDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -176,9 +176,7 @@
 				F5BC35CD191FC76D00A47118 /* SHMEntityFactoryDelegate.h */,
 				F51CDF3D18B30B4F005722B2 /* SHMEntity.m */,
 				F51CDF3E18B30B4F005722B2 /* SHMLink.m */,
-				F51CDF3F18B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.m */,
 				F51CDF4018B30B4F005722B2 /* SHMAction.m */,
-				F51CDF4118B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.h */,
 				F51CDF4218B30B4F005722B2 /* SHMAction.h */,
 				F51CDF4318B30B4F005722B2 /* SHMConstants.h */,
 				F51CDF4418B30B4F005722B2 /* SHMConstants.m */,
@@ -195,6 +193,8 @@
 				F5E5C7FB189DE02600602FB0 /* Supporting Files */,
 				F59C9E0D190E8F4B00F4EA94 /* SHMEntityFactory.h */,
 				F59C9E0E190E8F4B00F4EA94 /* SHMEntityFactory.m */,
+				F552E4AA191FCDA500F70EB3 /* SHMRequestFactory.h */,
+				F552E4AB191FCDA500F70EB3 /* SHMRequestFactory.m */,
 			);
 			name = SHMKit;
 			path = "Siren-Parser";
@@ -322,10 +322,10 @@
 				F51CDF5818B30B4F005722B2 /* SHMParser.m in Sources */,
 				F51CDF5518B30B4F005722B2 /* SHMActionDataHelper.m in Sources */,
 				F51CDF5418B30B4F005722B2 /* SHMConstants.m in Sources */,
-				F51CDF5218B30B4F005722B2 /* SHMAction+SHMActionRequestBuilder.m in Sources */,
 				F5BC35CC191FC75B00A47118 /* SHMTestEntityFactoryDelegate.m in Sources */,
 				F51CDF5118B30B4F005722B2 /* SHMLink.m in Sources */,
 				F51CDF5718B30B4F005722B2 /* SHMActionField.m in Sources */,
+				F552E4AC191FCDA500F70EB3 /* SHMRequestFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

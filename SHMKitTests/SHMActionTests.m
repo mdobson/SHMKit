@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "SHMAction.h"
-#import "SHMAction+SHMActionRequestBuilder.h"
+#import "SHMRequestFactory.h"
 #import "SHMParser.h"
 #import "SHMEntity.h"
 #import "SHMActionField.h"

@@ -11,7 +11,7 @@
 #import "SHMUrlHelper.h"
 #import "SHMActionDataHelper.h"
 #import "SHMConstants.h"
-#import "SHMAction+SHMActionRequestBuilder.h"
+#import "SHMRequestFactory.h"
 #import "SHMEntity.h"
 #import "SHMEntityFactory.h"
 
@@ -41,9 +41,9 @@ NSString const * urlEncoded = @"application/x-www-form-urlencoded";
         
         self.methodString = [data objectForKey:@"method"];
         if (self.methodString != nil) {
-            self.method = [SHMAction verbFromString:self.methodString];
+            self.method = [SHMConstants verbFromString:self.methodString];
         } else {
-            self.method = [SHMAction verbFromString:GETVERB];
+            self.method = [SHMConstants verbFromString:GETVERB];
         }
         
         NSMutableArray *actionFields = [[NSMutableArray alloc] init];
@@ -60,13 +60,13 @@ NSString const * urlEncoded = @"application/x-www-form-urlencoded";
 
 -(void)performActionWithFields:(NSDictionary *)fields andCompletion:(void (^)(NSError *, SHMEntity *))block {
     
-    NSMutableURLRequest *request = [self constructRequest:fields];
+    NSMutableURLRequest *request = [[SHMRequestFactory sharedFactory] constructRequest:fields forAction:self];
     [[SHMEntityFactory sharedFactory] sendSirenRequest:request withBlock:block];
 }
 
 -(void)performActionWithCompletion:(void (^)(NSError *, SHMEntity *))block {
     
-    NSMutableURLRequest *request = [self constructRequest:nil];
+    NSMutableURLRequest *request = [[SHMRequestFactory sharedFactory] constructRequest:nil forAction:self];
     [[SHMEntityFactory sharedFactory] sendSirenRequest:request withBlock:block];
 }
 @end
