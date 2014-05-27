@@ -69,7 +69,7 @@
     
 }
 
--(NSURLRequest *) constructHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict{
+-(NSURLRequest *) constructBodylessHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict{
     
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(buildRequestForAction:withParameters:)]) {
         return [self.delegate buildRequestForAction:action withParameters:dict];
@@ -89,7 +89,7 @@
 }
 
 
--(NSURLRequest *) constructBodylessHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict{
+-(NSURLRequest *) constructHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict{
     if (self.delegate != nil && [self.delegate respondsToSelector:@selector(buildBodylessRequestForAction:withParameters:)]) {
         return [self.delegate buildBodylessRequestForAction:action withParameters:dict];
     } else {
