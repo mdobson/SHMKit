@@ -17,6 +17,7 @@
 @property NSArray *links;
 @property NSArray *actions;
 @property NSString *title;
+@property NSArray *subEntityRels;
 
 /*
  Initialize a new Siren Entity with an NSData class. This is ideal for when you're making HTTP requests straight to the API.
@@ -42,5 +43,10 @@
  Check if we have a link in the siren document.
  */
 -(BOOL) hasLinkRel:(NSString *)linkRel;
+
+/*
+ Retrieve a link for relation if available, otherwise return nil.
+ */
+-(NSString *) linkForRel:(NSString *)linkRel;
 
 @end

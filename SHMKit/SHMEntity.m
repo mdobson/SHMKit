@@ -15,70 +15,70 @@
 
 -(id) initWithData:(NSData *)data {
     if (self = [super init]) {
-        NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-        self.class = json[@"class"];
-        self.properties = json[@"properties"];
-        self.title = json[@"title"];
-        
-        NSMutableArray *links = [[NSMutableArray alloc] init];
-        for (NSDictionary *link in json[@"links"]) {
-            SHMLink *parsedLink = [[SHMLink alloc] initWithDictionary:link];
-            [links addObject:parsedLink];
-        }
-        self.links = links;
-        
-        
-        NSMutableArray *actions = [[NSMutableArray alloc] init];
-        for (NSDictionary *action in json[@"actions"]) {
-            SHMAction *a = [[SHMAction alloc] initWithDictionary:action];
-            [actions addObject:a];
-        }
-        self.actions = actions;
-    
-        if ([json objectForKey:@"title"] != nil) {
-            self.title = json[@"title"];
-        }
-        
-        if ([json objectForKey:@"entities"] != nil) {
-            NSMutableArray *entities = [[NSMutableArray alloc] init];
-            for (NSDictionary *dict in json[@"entities"]) {
-                SHMEntity *entity = [[SHMEntity alloc] initWithDictionary:dict];
-                [entities addObject:entity];
-            }
-            self.entities = entities;
-        }
-        
+        NSDictionary *json = [NSJSONSerialization
+                              JSONObjectWithData:data
+                              options:kNilOptions error:nil];
+        [self loadDictionary:json];
     }
     return self;
 }
 
 -(id) initWithDictionary:(NSDictionary *)json {
     if (self = [super init]) {
-        self.class = json[@"class"];
-        self.properties = json[@"properties"];
-        self.title = json[@"title"];
-        
-        NSMutableArray *links = [[NSMutableArray alloc] init];
-        for (NSDictionary *link in json[@"links"]) {
-            SHMLink *parsedLink = [[SHMLink alloc] initWithDictionary:link];
-            [links addObject:parsedLink];
-        }
-        self.links = links;
-        
-        
-        NSMutableArray *actions = [[NSMutableArray alloc] init];
-        for (NSDictionary *action in json[@"actions"]) {
-            SHMAction *a = [[SHMAction alloc] initWithDictionary:action];
-            [actions addObject:a];
-        }
-        self.actions = actions;
-        
-        if ([json objectForKey:@"title"] != nil) {
-            self.title = json[@"title"];
-        }
+        [self loadDictionary:json];
     }
     
     return self;
+}
+
+-(void) loadDictionary:(NSDictionary *)json {
+    self.class = json[@"class"];
+    self.properties = json[@"properties"];
+    self.title = json[@"title"];
+    
+    NSMutableArray *links = [[NSMutableArray alloc] init];
+    for (NSDictionary *link in json[@"links"]) {
+        SHMLink *parsedLink = [[SHMLink alloc] initWithDictionary:link];
+        [links addObject:parsedLink];
+    }
+    self.links = links;
+    
+    NSMutableArray *subEntityRels = [[NSMutableArray alloc] init];
+    for (NSString *rel in json[@"rel"]) {
+        [subEntityRels addObject:rel];
+    }
+    self.subEntityRels = subEntityRels;
+    
+    NSMutableArray *actions = [[NSMutableArray alloc] init];
+    for (NSDictionary *action in json[@"actions"]) {
+        SHMAction *a = [[SHMAction alloc] initWithDictionary:action];
+        [actions addObject:a];
+    }
+    self.actions = actions;
+    
+    if ([json objectForKey:@"title"] != nil) {
+        self.title = json[@"title"];
+    }
+    
+    if ([json objectForKey:@"entities"] != nil) {
+        NSMutableArray *entities = [[NSMutableArray alloc] init];
+        for (NSDictionary *dict in json[@"entities"]) {
+            SHMEntity *entity = [[SHMEntity alloc] initWithDictionary:dict];
+            [entities addObject:entity];
+        }
+        self.entities = entities;
+    }
+}
+
+-(SHMEntity *) embeddedEntityForRel:(NSString *)linkRel {
+    for (SHMEntity *entity in self.entities) {
+        for (NSString* rel in entity.subEntityRels) {
+            if ([rel isEqualToString:linkRel]) {
+                return entity;
+            }
+        }
+    }
+    return nil;
 }
 
 -(NSString *) linkForRel:(NSString *)linkRel {
@@ -92,10 +92,25 @@
     return nil;
 }
 
+-(BOOL) hasLinkRel:(NSString *)linkRel {
+    if ([self linkForRel:linkRel] != nil)
+        return YES;
+
+    // Step into embedded entities
+    return [self embeddedEntityForRel:linkRel] != nil;
+}
+
 -(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *, SHMEntity *))block {
+
+    // Use embedded entity if available
+    SHMEntity* emebeddedEntity = [self embeddedEntityForRel:linkRel];
+    if (emebeddedEntity) {
+        block(nil, emebeddedEntity);
+        return;
+    }
+    
     NSString * method = @"GET";
     NSString * href = [self linkForRel:linkRel];
-    
     if (href != nil) {
         href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *url = [[NSURL alloc] initWithString:href];
@@ -116,10 +131,6 @@
         }
     }
     return nil;
-}
-
--(BOOL) hasLinkRel:(NSString *)linkRel {
-    return [self linkForRel:linkRel] != nil;
 }
 
 @end
