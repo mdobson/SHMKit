@@ -19,7 +19,7 @@
 
 @end
 
-NSString const * urlEncoded = @"application/x-www-form-urlencoded";
+NSString * const urlEncoded = @"application/x-www-form-urlencoded";
 
 @implementation SHMAction
 
