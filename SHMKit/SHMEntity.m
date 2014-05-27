@@ -81,20 +81,20 @@
     return self;
 }
 
--(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *, SHMEntity *))block {
-    NSString * method = @"GET";
-    NSString * href = nil;
+-(NSString *) linkForRel:(NSString *)linkRel {
     for (SHMLink *link in self.links) {
         for (NSString *rel in link.rel) {
-            if ([linkRel isEqualToString:rel]) {
-                href = link.href;
-                break;
+            if ([rel isEqualToString:linkRel]) {
+                return link.href;
             }
         }
-        if (href != nil) {
-            break;
-        }
     }
+    return nil;
+}
+
+-(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *, SHMEntity *))block {
+    NSString * method = @"GET";
+    NSString * href = [self linkForRel:linkRel];
     
     if (href != nil) {
         href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -115,25 +115,11 @@
             return action;
         }
     }
-    
     return nil;
 }
 
 -(BOOL) hasLinkRel:(NSString *)linkRel {
-    BOOL hasLink = NO;
-    for (SHMLink *link in self.links) {
-        for (NSString *rel in link.rel) {
-            if ([rel isEqualToString:linkRel]) {
-                hasLink = YES;
-                break;
-            }
-        }
-        if (hasLink == YES) {
-            break;
-        }
-    }
-    return hasLink;
+    return [self linkForRel:linkRel] != nil;
 }
-
 
 @end
