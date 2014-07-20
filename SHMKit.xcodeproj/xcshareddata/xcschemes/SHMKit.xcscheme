@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "F5E5C7F4189DE02600602FB0"
-               BuildableName = "libSHMKit.a"
+               BlueprintIdentifier = "F54983CD197BFE3000248758"
+               BuildableName = "SHMKit.framework"
                BlueprintName = "SHMKit"
                ReferencedContainer = "container:SHMKit.xcodeproj">
             </BuildableReference>
