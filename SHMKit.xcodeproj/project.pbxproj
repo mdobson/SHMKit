@@ -6,74 +6,49 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		F54983EB197C004B00248758 /* BuildSHMKit */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = F54983EC197C004B00248758 /* Build configuration list for PBXAggregateTarget "BuildSHMKit" */;
+			buildPhases = (
+				F54983EF197C005500248758 /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = BuildSHMKit;
+			productName = BuildSHMKit;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
-		F51CDF5018B30B4F005722B2 /* SHMEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3D18B30B4F005722B2 /* SHMEntity.m */; };
-		F51CDF5118B30B4F005722B2 /* SHMLink.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3E18B30B4F005722B2 /* SHMLink.m */; };
-		F51CDF5318B30B4F005722B2 /* SHMAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4018B30B4F005722B2 /* SHMAction.m */; };
-		F51CDF5418B30B4F005722B2 /* SHMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4418B30B4F005722B2 /* SHMConstants.m */; };
-		F51CDF5518B30B4F005722B2 /* SHMActionDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4618B30B4F005722B2 /* SHMActionDataHelper.m */; };
-		F51CDF5618B30B4F005722B2 /* SHMUrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4818B30B4F005722B2 /* SHMUrlHelper.m */; };
-		F51CDF5718B30B4F005722B2 /* SHMActionField.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4A18B30B4F005722B2 /* SHMActionField.m */; };
-		F51CDF5818B30B4F005722B2 /* SHMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4E18B30B4F005722B2 /* SHMParser.m */; };
 		F51CDF8018B30CDD005722B2 /* SHMActionRequestBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5918B30B77005722B2 /* SHMActionRequestBuilderTests.m */; };
 		F51CDF8118B30CDD005722B2 /* SHMActionDataHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5A18B30B77005722B2 /* SHMActionDataHelperTests.m */; };
 		F51CDF8218B30CDD005722B2 /* SHMURLHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5B18B30B77005722B2 /* SHMURLHelperTests.m */; };
 		F51CDF8318B30CDD005722B2 /* SHMLinkTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5C18B30B77005722B2 /* SHMLinkTests.m */; };
 		F51CDF8418B30CDD005722B2 /* SHMEntityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5D18B30B77005722B2 /* SHMEntityTests.m */; };
 		F51CDF8518B30CDD005722B2 /* SHMParserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF5E18B30B77005722B2 /* SHMParserTests.m */; };
-		F552E4AC191FCDA500F70EB3 /* SHMRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F552E4AB191FCDA500F70EB3 /* SHMRequestFactory.m */; };
-		F552E4B0191FD67F00F70EB3 /* SHMEntityFactoryDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F5BC35CD191FC76D00A47118 /* SHMEntityFactoryDelegate.h */; };
-		F552E4B1191FD68600F70EB3 /* SHMRequestFactoryDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F552E4AF191FD34800F70EB3 /* SHMRequestFactoryDelegate.h */; };
-		F5796A46191EC9760054E668 /* SHMEntityFactory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F59C9E0D190E8F4B00F4EA94 /* SHMEntityFactory.h */; };
-		F59C9E0F190E8F4B00F4EA94 /* SHMEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F59C9E0E190E8F4B00F4EA94 /* SHMEntityFactory.m */; };
-		F5BC35CC191FC75B00A47118 /* SHMTestEntityFactoryDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F5BC35CB191FC75B00A47118 /* SHMTestEntityFactoryDelegate.m */; };
+		F54983CF197BFE3000248758 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F54983BE197BFE1200248758 /* CoreFoundation.framework */; };
+		F54983D5197BFE3000248758 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = F54983D3197BFE3000248758 /* InfoPlist.strings */; };
+		F54983DB197BFF8B00248758 /* SHMAction.h in Headers */ = {isa = PBXBuildFile; fileRef = F51CDF4218B30B4F005722B2 /* SHMAction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F54983DC197BFF8B00248758 /* SHMEntity.h in Headers */ = {isa = PBXBuildFile; fileRef = F51CDF4B18B30B4F005722B2 /* SHMEntity.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F54983DD197BFF8B00248758 /* SHMParser.h in Headers */ = {isa = PBXBuildFile; fileRef = F51CDF4D18B30B4F005722B2 /* SHMParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F54983DE197BFF8B00248758 /* SHMRequestFactoryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F552E4AF191FD34800F70EB3 /* SHMRequestFactoryDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F54983DF197BFF8B00248758 /* SHMKit.h in Headers */ = {isa = PBXBuildFile; fileRef = F5B77CAD197B443500B76827 /* SHMKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F54983E0197BFFA600248758 /* SHMEntityFactoryDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = F5BC35CD191FC76D00A47118 /* SHMEntityFactoryDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F54983E1197C002000248758 /* SHMEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3D18B30B4F005722B2 /* SHMEntity.m */; };
+		F54983E2197C002000248758 /* SHMLink.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF3E18B30B4F005722B2 /* SHMLink.m */; };
+		F54983E3197C002000248758 /* SHMAction.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4018B30B4F005722B2 /* SHMAction.m */; };
+		F54983E4197C002000248758 /* SHMConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4418B30B4F005722B2 /* SHMConstants.m */; };
+		F54983E5197C002000248758 /* SHMActionDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4618B30B4F005722B2 /* SHMActionDataHelper.m */; };
+		F54983E6197C002000248758 /* SHMUrlHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4818B30B4F005722B2 /* SHMUrlHelper.m */; };
+		F54983E7197C002000248758 /* SHMActionField.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4A18B30B4F005722B2 /* SHMActionField.m */; };
+		F54983E8197C002000248758 /* SHMParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F51CDF4E18B30B4F005722B2 /* SHMParser.m */; };
+		F54983E9197C002000248758 /* SHMEntityFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F59C9E0E190E8F4B00F4EA94 /* SHMEntityFactory.m */; };
+		F54983EA197C002000248758 /* SHMRequestFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F552E4AB191FCDA500F70EB3 /* SHMRequestFactory.m */; };
 		F5C2CE4B191E7E51003CC049 /* SHMActionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F50680B0190E0B5100980DBC /* SHMActionTests.m */; };
-		F5D45FAD18B431C100F5749B /* SHMAction.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4218B30B4F005722B2 /* SHMAction.h */; };
-		F5D45FAE18B431C100F5749B /* SHMConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4318B30B4F005722B2 /* SHMConstants.h */; };
-		F5D45FAF18B431C100F5749B /* SHMActionDataHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4518B30B4F005722B2 /* SHMActionDataHelper.h */; };
-		F5D45FB018B431C100F5749B /* SHMUrlHelper.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4718B30B4F005722B2 /* SHMUrlHelper.h */; };
-		F5D45FB118B431C100F5749B /* SHMActionField.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4918B30B4F005722B2 /* SHMActionField.h */; };
-		F5D45FB218B431C100F5749B /* SHMEntity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4B18B30B4F005722B2 /* SHMEntity.h */; };
-		F5D45FB318B431C100F5749B /* SHMLink.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4C18B30B4F005722B2 /* SHMLink.h */; };
-		F5D45FB418B431C100F5749B /* SHMParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = F51CDF4D18B30B4F005722B2 /* SHMParser.h */; };
-		F5E5C7F9189DE02600602FB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F8189DE02600602FB0 /* Foundation.framework */; };
 		F5E5C807189DE02700602FB0 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C806189DE02700602FB0 /* XCTest.framework */; };
 		F5E5C808189DE02700602FB0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F8189DE02600602FB0 /* Foundation.framework */; };
-		F5E5C80D189DE02700602FB0 /* libSHMKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F5E5C7F5189DE02600602FB0 /* libSHMKit.a */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		F5E5C80B189DE02700602FB0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = F5E5C7ED189DE02600602FB0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = F5E5C7F4189DE02600602FB0;
-			remoteInfo = "Siren-Parser";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		F5E5C7F3189DE02600602FB0 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 12;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-				F552E4B1191FD68600F70EB3 /* SHMRequestFactoryDelegate.h in CopyFiles */,
-				F552E4B0191FD67F00F70EB3 /* SHMEntityFactoryDelegate.h in CopyFiles */,
-				F5796A46191EC9760054E668 /* SHMEntityFactory.h in CopyFiles */,
-				F5D45FAD18B431C100F5749B /* SHMAction.h in CopyFiles */,
-				F5D45FAE18B431C100F5749B /* SHMConstants.h in CopyFiles */,
-				F5D45FAF18B431C100F5749B /* SHMActionDataHelper.h in CopyFiles */,
-				F5D45FB018B431C100F5749B /* SHMUrlHelper.h in CopyFiles */,
-				F5D45FB118B431C100F5749B /* SHMActionField.h in CopyFiles */,
-				F5D45FB218B431C100F5749B /* SHMEntity.h in CopyFiles */,
-				F5D45FB318B431C100F5749B /* SHMLink.h in CopyFiles */,
-				F5D45FB418B431C100F5749B /* SHMParser.h in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		F50680B0190E0B5100980DBC /* SHMActionTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMActionTests.m; path = SHMKitTests/SHMActionTests.m; sourceTree = SOURCE_ROOT; };
@@ -102,6 +77,14 @@
 		F51CDF5E18B30B77005722B2 /* SHMParserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMParserTests.m; path = SHMKitTests/SHMParserTests.m; sourceTree = SOURCE_ROOT; };
 		F51CDF6118B30B77005722B2 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = InfoPlist.strings; sourceTree = "<group>"; };
 		F51CDF6218B30B77005722B2 /* SHMKitTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SHMKitTests-Info.plist"; path = "SHMKitTests/SHMKitTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+		F54983BE197BFE1200248758 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		F54983C2197BFE1200248758 /* SHMKitBundle-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SHMKitBundle-Info.plist"; sourceTree = "<group>"; };
+		F54983C4197BFE1200248758 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F54983C6197BFE1200248758 /* SHMKitBundle-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SHMKitBundle-Prefix.pch"; sourceTree = "<group>"; };
+		F54983CE197BFE3000248758 /* SHMKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F54983D2197BFE3000248758 /* SHMKit-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SHMKit-Info.plist"; sourceTree = "<group>"; };
+		F54983D4197BFE3000248758 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		F54983D6197BFE3000248758 /* SHMKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SHMKit-Prefix.pch"; sourceTree = "<group>"; };
 		F552E4AA191FCDA500F70EB3 /* SHMRequestFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMRequestFactory.h; path = SHMKit/SHMRequestFactory.h; sourceTree = SOURCE_ROOT; };
 		F552E4AB191FCDA500F70EB3 /* SHMRequestFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMRequestFactory.m; path = SHMKit/SHMRequestFactory.m; sourceTree = SOURCE_ROOT; };
 		F552E4AF191FD34800F70EB3 /* SHMRequestFactoryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SHMRequestFactoryDelegate.h; path = SHMKit/SHMRequestFactoryDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -111,18 +94,17 @@
 		F5BC35CA191FC75B00A47118 /* SHMTestEntityFactoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMTestEntityFactoryDelegate.h; path = SHMKitTests/SHMTestEntityFactoryDelegate.h; sourceTree = SOURCE_ROOT; };
 		F5BC35CB191FC75B00A47118 /* SHMTestEntityFactoryDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMTestEntityFactoryDelegate.m; path = SHMKitTests/SHMTestEntityFactoryDelegate.m; sourceTree = SOURCE_ROOT; };
 		F5BC35CD191FC76D00A47118 /* SHMEntityFactoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMEntityFactoryDelegate.h; path = SHMKit/SHMEntityFactoryDelegate.h; sourceTree = SOURCE_ROOT; };
-		F5E5C7F5189DE02600602FB0 /* libSHMKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSHMKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E5C7F8189DE02600602FB0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		F5E5C805189DE02700602FB0 /* SHMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SHMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5E5C806189DE02700602FB0 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F5E5C7F2189DE02600602FB0 /* Frameworks */ = {
+		F54983CB197BFE3000248758 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F5E5C7F9189DE02600602FB0 /* Foundation.framework in Frameworks */,
+				F54983CF197BFE3000248758 /* CoreFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +113,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F5E5C807189DE02700602FB0 /* XCTest.framework in Frameworks */,
-				F5E5C80D189DE02700602FB0 /* libSHMKit.a in Frameworks */,
 				F5E5C808189DE02700602FB0 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,11 +129,49 @@
 			path = SHMKitTests/en.lproj;
 			sourceTree = SOURCE_ROOT;
 		};
+		F54983C0197BFE1200248758 /* SHMKitBundle */ = {
+			isa = PBXGroup;
+			children = (
+				F54983C1197BFE1200248758 /* Supporting Files */,
+			);
+			path = SHMKitBundle;
+			sourceTree = "<group>";
+		};
+		F54983C1197BFE1200248758 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F54983C2197BFE1200248758 /* SHMKitBundle-Info.plist */,
+				F54983C3197BFE1200248758 /* InfoPlist.strings */,
+				F54983C6197BFE1200248758 /* SHMKitBundle-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F54983D0197BFE3000248758 /* SHMKit */ = {
+			isa = PBXGroup;
+			children = (
+				F54983D1197BFE3000248758 /* Supporting Files */,
+			);
+			path = SHMKit;
+			sourceTree = "<group>";
+		};
+		F54983D1197BFE3000248758 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				F54983D2197BFE3000248758 /* SHMKit-Info.plist */,
+				F54983D3197BFE3000248758 /* InfoPlist.strings */,
+				F54983D6197BFE3000248758 /* SHMKit-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		F5E5C7EC189DE02600602FB0 = {
 			isa = PBXGroup;
 			children = (
 				F5E5C7FA189DE02600602FB0 /* SHMKit */,
 				F5E5C80E189DE02700602FB0 /* SHMKitTests */,
+				F54983C0197BFE1200248758 /* SHMKitBundle */,
+				F54983D0197BFE3000248758 /* SHMKit */,
 				F5E5C7F7189DE02600602FB0 /* Frameworks */,
 				F5E5C7F6189DE02600602FB0 /* Products */,
 			);
@@ -161,8 +180,8 @@
 		F5E5C7F6189DE02600602FB0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F5E5C7F5189DE02600602FB0 /* libSHMKit.a */,
 				F5E5C805189DE02700602FB0 /* SHMKitTests.xctest */,
+				F54983CE197BFE3000248758 /* SHMKit.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +191,7 @@
 			children = (
 				F5E5C7F8189DE02600602FB0 /* Foundation.framework */,
 				F5E5C806189DE02700602FB0 /* XCTest.framework */,
+				F54983BE197BFE1200248758 /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -245,23 +265,40 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		F54983DA197BFF4300248758 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F54983DB197BFF8B00248758 /* SHMAction.h in Headers */,
+				F54983DC197BFF8B00248758 /* SHMEntity.h in Headers */,
+				F54983DD197BFF8B00248758 /* SHMParser.h in Headers */,
+				F54983DE197BFF8B00248758 /* SHMRequestFactoryDelegate.h in Headers */,
+				F54983E0197BFFA600248758 /* SHMEntityFactoryDelegate.h in Headers */,
+				F54983DF197BFF8B00248758 /* SHMKit.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		F5E5C7F4189DE02600602FB0 /* SHMKit */ = {
+		F54983CD197BFE3000248758 /* SHMKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = F5E5C818189DE02700602FB0 /* Build configuration list for PBXNativeTarget "SHMKit" */;
+			buildConfigurationList = F54983D7197BFE3000248758 /* Build configuration list for PBXNativeTarget "SHMKit" */;
 			buildPhases = (
-				F5E5C7F1189DE02600602FB0 /* Sources */,
-				F5E5C7F2189DE02600602FB0 /* Frameworks */,
-				F5E5C7F3189DE02600602FB0 /* CopyFiles */,
+				F54983CA197BFE3000248758 /* Sources */,
+				F54983CB197BFE3000248758 /* Frameworks */,
+				F54983CC197BFE3000248758 /* Resources */,
+				F54983DA197BFF4300248758 /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = SHMKit;
-			productName = "Siren-Parser";
-			productReference = F5E5C7F5189DE02600602FB0 /* libSHMKit.a */;
-			productType = "com.apple.product-type.library.static";
+			productName = SHMKit;
+			productReference = F54983CE197BFE3000248758 /* SHMKit.framework */;
+			productType = "com.apple.product-type.bundle";
 		};
 		F5E5C804189DE02700602FB0 /* SHMKitTests */ = {
 			isa = PBXNativeTarget;
@@ -274,7 +311,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				F5E5C80C189DE02700602FB0 /* PBXTargetDependency */,
 			);
 			name = SHMKitTests;
 			productName = "Siren-ParserTests";
@@ -289,6 +325,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Matthew Dobson";
+				TargetAttributes = {
+					F5E5C804189DE02700602FB0 = {
+						TestTargetID = F54983CD197BFE3000248758;
+					};
+				};
 			};
 			buildConfigurationList = F5E5C7F0189DE02600602FB0 /* Build configuration list for PBXProject "SHMKit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -302,13 +343,22 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				F5E5C7F4189DE02600602FB0 /* SHMKit */,
 				F5E5C804189DE02700602FB0 /* SHMKitTests */,
+				F54983CD197BFE3000248758 /* SHMKit */,
+				F54983EB197C004B00248758 /* BuildSHMKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		F54983CC197BFE3000248758 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F54983D5197BFE3000248758 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		F5E5C803189DE02700602FB0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -318,22 +368,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		F54983EF197C005500248758 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Sets the target folders and the final framework product.\nFMK_NAME=SHMKit   # replace with your framework name\nFMK_VERSION=1   # replace with your version\n\n# Install dir will be the final output to the framework.\n# The following line create it in the root folder of the current project.\nINSTALL_DIR=${SRCROOT}/Products/${FMK_NAME}.framework\n\n# Working dir will be deleted after the framework creation.\nWRK_DIR=build\nDEVICE_DIR=${WRK_DIR}/Release-iphoneos/${FMK_NAME}.framework\nSIMULATOR_DIR=${WRK_DIR}/Release-iphonesimulator/${FMK_NAME}.framework\n\n# Building both architectures.\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphoneos\nxcodebuild -configuration \"Release\" -target \"${FMK_NAME}\" -sdk iphonesimulator\n\n# Cleaning the oldest.\nif [ -d \"${INSTALL_DIR}\" ]\nthen\nrm -rf \"${INSTALL_DIR}\"\nfi\n\n# Creates and renews the final product folder.\nmkdir -p \"${INSTALL_DIR}\"\nmkdir -p \"${INSTALL_DIR}/Versions\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources\"\nmkdir -p \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers\"\n\n# Creates the internal links.\n# It MUST uses relative path, otherwise will not work when the folder is copied/moved.\nln -s \"${FMK_VERSION}\" \"${INSTALL_DIR}/Versions/Current\"\nln -s \"Versions/Current/Headers\" \"${INSTALL_DIR}/Headers\"\nln -s \"Versions/Current/Resources\" \"${INSTALL_DIR}/Resources\"\nln -s \"Versions/Current/${FMK_NAME}\" \"${INSTALL_DIR}/${FMK_NAME}\"\n\n# Copies the headers and resources files to the final product folder.\ncp -R \"${DEVICE_DIR}/Headers/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Headers/\"\ncp -R \"${DEVICE_DIR}/\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/\"\n\n# Removes the binary and header from the resources folder.\nrm -r \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/Headers\" \"${INSTALL_DIR}/Versions/${FMK_VERSION}/Resources/${FMK_NAME}\"\n\n# Uses the Lipo Tool to merge both binary files (i386 + armv6/armv7) into one Universal final product.\n#lipo -create \"${DEVICE_DIR}/${FMK_NAME}\" \"${SIMULATOR_DIR}/${FMK_NAME}\" -output \"${INSTALL_DIR}/Versions/${FMK_VERSION}/${FMK_NAME}\"\nrm -r \"${WRK_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		F5E5C7F1189DE02600602FB0 /* Sources */ = {
+		F54983CA197BFE3000248758 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F59C9E0F190E8F4B00F4EA94 /* SHMEntityFactory.m in Sources */,
-				F51CDF5318B30B4F005722B2 /* SHMAction.m in Sources */,
-				F51CDF5618B30B4F005722B2 /* SHMUrlHelper.m in Sources */,
-				F51CDF5018B30B4F005722B2 /* SHMEntity.m in Sources */,
-				F51CDF5818B30B4F005722B2 /* SHMParser.m in Sources */,
-				F51CDF5518B30B4F005722B2 /* SHMActionDataHelper.m in Sources */,
-				F51CDF5418B30B4F005722B2 /* SHMConstants.m in Sources */,
-				F5BC35CC191FC75B00A47118 /* SHMTestEntityFactoryDelegate.m in Sources */,
-				F51CDF5118B30B4F005722B2 /* SHMLink.m in Sources */,
-				F51CDF5718B30B4F005722B2 /* SHMActionField.m in Sources */,
-				F552E4AC191FCDA500F70EB3 /* SHMRequestFactory.m in Sources */,
+				F54983E1197C002000248758 /* SHMEntity.m in Sources */,
+				F54983E2197C002000248758 /* SHMLink.m in Sources */,
+				F54983E3197C002000248758 /* SHMAction.m in Sources */,
+				F54983E4197C002000248758 /* SHMConstants.m in Sources */,
+				F54983E5197C002000248758 /* SHMActionDataHelper.m in Sources */,
+				F54983E6197C002000248758 /* SHMUrlHelper.m in Sources */,
+				F54983E7197C002000248758 /* SHMActionField.m in Sources */,
+				F54983E8197C002000248758 /* SHMParser.m in Sources */,
+				F54983E9197C002000248758 /* SHMEntityFactory.m in Sources */,
+				F54983EA197C002000248758 /* SHMRequestFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,14 +418,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		F5E5C80C189DE02700602FB0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = F5E5C7F4189DE02600602FB0 /* SHMKit */;
-			targetProxy = F5E5C80B189DE02700602FB0 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		F51CDF6018B30B77005722B2 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
@@ -370,9 +427,90 @@
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
+		F54983C3197BFE1200248758 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F54983C4197BFE1200248758 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		F54983D3197BFE3000248758 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F54983D4197BFE3000248758 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		F54983D8197BFE3000248758 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SHMKit/SHMKit-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "SHMKit/SHMKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Debug;
+		};
+		F54983D9197BFE3000248758 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SHMKit/SHMKit-Prefix.pch";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				INFOPLIST_FILE = "SHMKit/SHMKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				LINK_WITH_STANDARD_LIBRARIES = NO;
+				MACH_O_TYPE = mh_object;
+				MACOSX_DEPLOYMENT_TARGET = 10.9;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv7 armv7s";
+				WRAPPER_EXTENSION = framework;
+			};
+			name = Release;
+		};
+		F54983ED197C004B00248758 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		F54983EE197C004B00248758 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		F5E5C816189DE02700602FB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -408,6 +546,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = armv7;
 			};
 			name = Debug;
 		};
@@ -437,41 +576,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		F5E5C819189DE02700602FB0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/Siren_Parser.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SHMKit/SHMKit-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = SHMKit;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		F5E5C81A189DE02700602FB0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DSTROOT = /tmp/Siren_Parser.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "SHMKit/SHMKit-Prefix.pch";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = SHMKit;
-				SKIP_INSTALL = YES;
+				VALID_ARCHS = armv7;
 			};
 			name = Release;
 		};
@@ -479,6 +588,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLY_RULES_IN_COPY_FILES = YES;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SHMKit.framework/SHMKit";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -492,6 +602,7 @@
 				);
 				INFOPLIST_FILE = "SHMKitTests/SHMKitTests-Info.plist";
 				PRODUCT_NAME = SHMKitTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -500,6 +611,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APPLY_RULES_IN_COPY_FILES = YES;
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SHMKit.framework/SHMKit";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -509,6 +621,7 @@
 				GCC_PREFIX_HEADER = "SHMKit/SHMKit-Prefix.pch";
 				INFOPLIST_FILE = "SHMKitTests/SHMKitTests-Info.plist";
 				PRODUCT_NAME = SHMKitTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
@@ -516,20 +629,29 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		F54983D7197BFE3000248758 /* Build configuration list for PBXNativeTarget "SHMKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F54983D8197BFE3000248758 /* Debug */,
+				F54983D9197BFE3000248758 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F54983EC197C004B00248758 /* Build configuration list for PBXAggregateTarget "BuildSHMKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F54983ED197C004B00248758 /* Debug */,
+				F54983EE197C004B00248758 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F5E5C7F0189DE02600602FB0 /* Build configuration list for PBXProject "SHMKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				F5E5C816189DE02700602FB0 /* Debug */,
 				F5E5C817189DE02700602FB0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		F5E5C818189DE02700602FB0 /* Build configuration list for PBXNativeTarget "SHMKit" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				F5E5C819189DE02700602FB0 /* Debug */,
-				F5E5C81A189DE02700602FB0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
