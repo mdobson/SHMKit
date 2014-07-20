@@ -124,6 +124,23 @@
     XCTAssertTrue([[url absoluteString] isEqualToString:@"http://msiren.herokuapp.com/museums"], @"Fragment not constructed properly");
 }
 
+- (void)testBuildGETWithFragment
+{
+    NSString *url = @"http://msiren.herokuapp.com/";
+    SHMParser *parser = [[SHMParser alloc] initWithSirenRoot:url];
+    [parser retrieveRoot:^(NSError *err, SHMEntity* entity){
+        [entity stepToLinkRel:@"museums"
+               withCompletion:^(NSError *err, SHMEntity *entity){
+                   SHMAction *action = [entity getSirenAction:@"get-museums-fragment"];
+                   NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:@"where museum='DIA'", @"query", @"5", @"limit", nil];
+                   NSURLRequest *req = [[SHMRequestFactory sharedFactory] constructRequestForAction:action withParams:dict];
+                   XCTAssertTrue([req.HTTPMethod isEqualToString:@"GET"], @"Incorrect HTTP Method expecting GET had %@", req.HTTPMethod);
+                   XCTAssertTrue([[req.URL absoluteString] isEqualToString:@"http://msiren.herokuapp.com/museums?query=where%20museum=%27DIA%27&limit=5"], @"Incorrect HTTP Method expecting GET had %@", req.HTTPMethod);
+               }];
+    }];
+}
+
+
 //- (void)testBuildPATCH
 //{
 //    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
