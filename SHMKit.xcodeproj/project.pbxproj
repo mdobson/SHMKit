@@ -107,6 +107,7 @@
 		F552E4AF191FD34800F70EB3 /* SHMRequestFactoryDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = SHMRequestFactoryDelegate.h; path = SHMKit/SHMRequestFactoryDelegate.h; sourceTree = SOURCE_ROOT; };
 		F59C9E0D190E8F4B00F4EA94 /* SHMEntityFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMEntityFactory.h; path = SHMKit/SHMEntityFactory.h; sourceTree = SOURCE_ROOT; };
 		F59C9E0E190E8F4B00F4EA94 /* SHMEntityFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMEntityFactory.m; path = SHMKit/SHMEntityFactory.m; sourceTree = SOURCE_ROOT; };
+		F5B77CAD197B443500B76827 /* SHMKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHMKit.h; sourceTree = SOURCE_ROOT; };
 		F5BC35CA191FC75B00A47118 /* SHMTestEntityFactoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMTestEntityFactoryDelegate.h; path = SHMKitTests/SHMTestEntityFactoryDelegate.h; sourceTree = SOURCE_ROOT; };
 		F5BC35CB191FC75B00A47118 /* SHMTestEntityFactoryDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMTestEntityFactoryDelegate.m; path = SHMKitTests/SHMTestEntityFactoryDelegate.m; sourceTree = SOURCE_ROOT; };
 		F5BC35CD191FC76D00A47118 /* SHMEntityFactoryDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMEntityFactoryDelegate.h; path = SHMKit/SHMEntityFactoryDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -201,6 +202,7 @@
 				F552E4AA191FCDA500F70EB3 /* SHMRequestFactory.h */,
 				F552E4AB191FCDA500F70EB3 /* SHMRequestFactory.m */,
 				F552E4AF191FD34800F70EB3 /* SHMRequestFactoryDelegate.h */,
+				F5B77CAD197B443500B76827 /* SHMKit.h */,
 			);
 			name = SHMKit;
 			path = "Siren-Parser";

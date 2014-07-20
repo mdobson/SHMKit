@@ -7,8 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "SHMParser.h"
-#import "SHMEntity.h"
+#import <SHMKit/SHMKit.h>
 
 @interface SHMEntityTests : XCTestCase
 
