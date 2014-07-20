@@ -13,6 +13,8 @@
 @interface SHMRequestFactory : NSObject
 
 @property (nonatomic, retain) id<SHMRequestFactoryDelegate> delegate;
+@property (nonatomic, retain) NSURL *baseUrl;
+
 
 + (id)sharedFactory;
 
@@ -30,5 +32,10 @@
  Create an http request that has URL parameters instead of parameters in the body. GET, DELETE, TRACE, HEAD, OPTIONS, CONNECT
  */
 -(NSURLRequest *) constructBodylessHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict;
+
+/*
+ Generate the URL for the outgoing API request. If the provided href is a fragment generate a full URL.
+*/
+-(NSURL *)generateUrlForHref:(NSString *)href;
 
 @end

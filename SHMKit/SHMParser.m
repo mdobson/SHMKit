@@ -8,6 +8,7 @@
 
 #import "SHMParser.h"
 #import "SHMEntityFactory.h"
+#import "SHMRequestFactory.h"
 
 @interface SHMParser()
 
@@ -18,6 +19,7 @@
 -(id) initWithSirenRoot:(NSString *)endpoint {
     if (self = [super init]) {
         self.endpoint = endpoint;
+        [[SHMRequestFactory sharedFactory] setBaseUrl:[NSURL URLWithString:endpoint]];
     }
     return self;
 }

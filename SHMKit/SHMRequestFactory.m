@@ -13,6 +13,8 @@
 
 @implementation SHMRequestFactory
 
+@synthesize delegate, baseUrl;
+
 +(id) sharedFactory{
     static SHMRequestFactory *factory = nil;
     static dispatch_once_t onceToken;
@@ -81,7 +83,7 @@
             constructedUrl = action.href;
         }
         
-        NSURL *urlObj = [[NSURL alloc] initWithString:constructedUrl];
+        NSURL *urlObj = [self generateUrlForHref:constructedUrl];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
         request.HTTPMethod = [SHMConstants verbFromEnum:action.method];
         return request;
@@ -94,7 +96,7 @@
         return [self.delegate buildBodylessRequestForAction:action withParameters:dict];
     } else {
         NSString * body = nil;
-        NSURL *urlObj = [[NSURL alloc] initWithString:action.href];
+        NSURL *urlObj = [self generateUrlForHref:action.href];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
         
         if ([dict count] > 0) {
@@ -116,5 +118,12 @@
     }
 }
 
+-(NSURL *) generateUrlForHref:(NSString *)href {
+    NSURL *url = [NSURL URLWithString:href];
+    if (url.host == nil) {
+        url = [[NSURL alloc] initWithString:href relativeToURL:self.baseUrl];
+    }
+    return url;
+}
 
 @end

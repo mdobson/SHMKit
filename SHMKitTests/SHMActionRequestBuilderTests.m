@@ -109,6 +109,21 @@
     HTTP_VERB verb = [SHMConstants verbFromString:@"FOO"];
     XCTAssert(verb == 0, @"Bad verb returns zero");
 }
+
+-(void)testFragmentLinkBuild {
+    [[SHMRequestFactory sharedFactory] setBaseUrl:[NSURL URLWithString:@"http://msiren.herokuapp.com/"]];
+    
+    NSURL *url = [[SHMRequestFactory sharedFactory] generateUrlForHref:@"/museums"];
+    NSLog(@"URL: %@", [url absoluteString]);
+    XCTAssertTrue([[url absoluteString] isEqualToString:@"http://msiren.herokuapp.com/museums"], @"Fragment not constructed properly");
+}
+
+-(void)testFullURLLinkBuild {
+    [[SHMRequestFactory sharedFactory] setBaseUrl:[NSURL URLWithString:@"http://example.com"]];
+    NSURL *url = [[SHMRequestFactory sharedFactory] generateUrlForHref:@"http://msiren.herokuapp.com/museums"];
+    XCTAssertTrue([[url absoluteString] isEqualToString:@"http://msiren.herokuapp.com/museums"], @"Fragment not constructed properly");
+}
+
 //- (void)testBuildPATCH
 //{
 //    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
