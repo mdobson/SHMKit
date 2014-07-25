@@ -114,7 +114,7 @@
     NSString * href = [self linkForRel:linkRel];
     if (href != nil) {
         href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSURL *url = [[SHMEntityFactory sharedFactory] generateUrlForHref:href];
+        NSURL *url = [[SHMRequestFactory sharedFactory] generateUrlForHref:href];
         NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
         req.HTTPMethod = method;
         [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
