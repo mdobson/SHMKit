@@ -10,6 +10,7 @@
 #import "SHMLink.h"
 #import "SHMAction.h"
 #import "SHMEntityFactory.h"
+#import "SHMRequestFactory.h"
 
 @implementation SHMEntity
 
@@ -113,7 +114,7 @@
     NSString * href = [self linkForRel:linkRel];
     if (href != nil) {
         href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSURL *url = [[NSURL alloc] initWithString:href];
+        NSURL *url = [[SHMEntityFactory sharedFactory] generateUrlForHref:href];
         NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
         req.HTTPMethod = method;
         [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
