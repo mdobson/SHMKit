@@ -15,6 +15,7 @@
     if (self = [super init]) {
         self.rel = data[@"rel"];
         self.href = data[@"href"];
+        self.title = data[@"title"];
     }
     return self;
 }

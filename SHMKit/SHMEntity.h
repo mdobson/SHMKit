@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SHMAction.h"
+#import "SHMLink.h"
 
 @interface SHMEntity : NSObject
 
@@ -34,6 +35,12 @@
  */
 -(void) stepToLinkRel:(NSString *)linkRel withCompletion:(void (^)(NSError *error, SHMEntity *entity))block;
 
+
+/*
+ Async step to link in current entity. If relation isn't present then return error as first parameter to the block.
+ */
+-(void) stepToLink:(SHMLink *)link withCompletion:(void (^)(NSError *error, SHMEntity *entity))block;
+
 /*
  Get a specific siren action from the entity. If no action with that particular name is present return nil.
  */
@@ -45,8 +52,23 @@
 -(BOOL) hasLinkRel:(NSString *)linkRel;
 
 /*
- Retrieve a link for relation if available, otherwise return nil.
+ Retrieve first link for relation if available, otherwise return nil.
  */
 -(NSString *) linkForRel:(NSString *)linkRel;
 
+/*
+ Retrieve all links for relation. If none empty array will be returned.
+*/
+-(NSArray *)linksForRel:(NSString *)linkRel;
+
+
+/*
+ Retrieve a link for name if available, otherwise return nil.
+*/
+-(NSString *) linkForTitle:(NSString *)linkTitle;
+
+/*
+ Retrieve full link object representations.
+*/
+-(NSArray *) linkObjectsForRel:(NSString *)linkRel;
 @end

@@ -10,6 +10,7 @@
 
 @interface SHMLink : NSObject
 
+@property NSString *title;
 @property NSArray *rel;
 @property NSString *href;
 

@@ -125,6 +125,21 @@
 
 }
 
+-(void) stepToLink:(SHMLink *)link withCompletion:(void (^)(NSError *error, SHMEntity *entity))block {
+    NSString * method = @"GET";
+    NSString * href = link.href;
+    if (href != nil) {
+        href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURL *url = [[SHMRequestFactory sharedFactory] generateUrlForHref:href];
+        NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
+        req.HTTPMethod = method;
+        [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
+    } else {
+        NSError *err = [[NSError alloc] initWithDomain:@"siren" code:1 userInfo:@{NSLocalizedDescriptionKey: @"No href to step to."}];
+        block(err, nil);
+    }
+}
+
 -(SHMAction *) getSirenAction:(NSString *)name {
     for (SHMAction *action in self.actions) {
         if ([action.name isEqualToString:name]) {
@@ -132,6 +147,39 @@
         }
     }
     return nil;
+}
+
+-(NSString *) linkForTitle:(NSString *)linkTitle {
+    for (SHMLink *link in self.links) {
+        if ([link.title isEqualToString:linkTitle]) {
+            return link.href;
+        }
+    }
+    return nil;
+}
+
+-(NSArray *) linksForRel:(NSString *)linkRel {
+    NSMutableArray *links = [[NSMutableArray alloc] init];
+    for (SHMLink *link in self.links) {
+        for (NSString *rel in link.rel) {
+            if ([rel isEqualToString:linkRel]) {
+                [links addObject:link.href];
+            }
+        }
+    }
+    return links;
+}
+
+-(NSArray *) linkObjectsForRel:(NSString *)linkRel {
+    NSMutableArray *links = [[NSMutableArray alloc] init];
+    for (SHMLink *link in self.links) {
+        for (NSString *rel in link.rel) {
+            if ([rel isEqualToString:linkRel]) {
+                [links addObject:link];
+            }
+        }
+    }
+    return links;
 }
 
 @end
