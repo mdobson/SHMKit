@@ -182,4 +182,13 @@
     return links;
 }
 
+-(SHMLink *) linkObjectForTitle:(NSString *)linkTitle {
+    for (SHMLink *link in self.links) {
+        if ([link.title isEqualToString:linkTitle]) {
+            return link;
+        }
+    }
+    return nil;
+}
+
 @end

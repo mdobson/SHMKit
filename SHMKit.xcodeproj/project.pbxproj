@@ -446,6 +446,7 @@
 		F5E5C819189DE02700602FB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEFINES_MODULE = YES;
 				DSTROOT = /tmp/Siren_Parser.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -462,6 +463,7 @@
 		F5E5C81A189DE02700602FB0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEFINES_MODULE = YES;
 				DSTROOT = /tmp/Siren_Parser.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

@@ -71,4 +71,10 @@
  Retrieve full link object representations.
 */
 -(NSArray *) linkObjectsForRel:(NSString *)linkRel;
+
+/* 
+ Retrieve link object for title.
+*/
+-(SHMLink *) linkObjectForTitle:(NSString *)linkTitle;
+
 @end
