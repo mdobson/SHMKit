@@ -7,8 +7,12 @@
 //
 
 #import "SHMViewController.h"
+#import <SHMKit/SHMParser.h>
+#import <SHMKit/SHMParser.h>
 
 @interface SHMViewController ()
+
+@property (nonatomic, retain) SHMParser *parser;
 
 @end
 
@@ -17,6 +21,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.parser = [[SHMParser alloc] initWithSirenRoot:@"http://zetta-cloud-devices.herokuapp.com/"];
+    [self.parser retrieveRoot:^(NSError *err, SHMEntity *entity) {
+        
+    }];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
