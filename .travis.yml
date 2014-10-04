@@ -4,4 +4,5 @@ xcode_scheme: SHMKit
 xcode_sdk: iphonesimulator8.0
 script:
   - brew update
-  - xctool -project SHMKit.xcodeproj -scheme SHMKit -sdk iphonesimulator build test
+  - brew upgrade xctool
+  - xctool -project SHMKit.xcodeproj -scheme SHMKit -sdk iphonesimulator clean build test
