@@ -7,12 +7,14 @@
 //
 
 #import "SHMViewController.h"
+#import "SHMEntityControllerTableViewController.h"
 #import <SHMKit/SHMParser.h>
 #import <SHMKit/SHMParser.h>
 
 @interface SHMViewController ()
 
 @property (nonatomic, retain) SHMParser *parser;
+@property (nonatomic, strong) SHMEntity *retrievedEntity;
 
 @end
 
@@ -21,11 +23,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.parser = [[SHMParser alloc] initWithSirenRoot:@"http://zetta-cloud-devices.herokuapp.com/"];
-    [self.parser retrieveRoot:^(NSError *err, SHMEntity *entity) {
-        
-    }];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -33,6 +30,24 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)getSirenEndpoint:(id)sender {
+    NSString *uri = self.text.text;
+    self.parser = [[SHMParser alloc] initWithSirenRoot:uri];
+    [self.parser retrieveRoot:^(NSError *err, SHMEntity *entity) {
+        if (!err) {
+            self.retrievedEntity = entity;
+            [self performSegueWithIdentifier:@"entity" sender:self];
+        }
+    }];
+    
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"entity"]) {
+        [segue.destinationViewController setEntity:self.retrievedEntity];
+    }
 }
 
 @end

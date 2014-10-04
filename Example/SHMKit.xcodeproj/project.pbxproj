@@ -24,6 +24,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		BD03048D18BA0F5FF6C4F2FF /* libPods-Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 73D1EF4169015AEB00DB9E21 /* libPods-Tests.a */; };
 		F5A6EFEF19E07AAE00F1A585 /* SHMParserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A6EFEE19E07AAE00F1A585 /* SHMParserSpec.m */; };
+		F5E3334019E0AA0E00059E83 /* SHMEntityControllerTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E3333F19E0AA0E00059E83 /* SHMEntityControllerTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		DA79606BC16B0B7B286E6B14 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		E53A684D302373CB9E229A77 /* SHMKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SHMKit.podspec; path = ../SHMKit.podspec; sourceTree = "<group>"; };
 		F5A6EFEE19E07AAE00F1A585 /* SHMParserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMParserSpec.m; sourceTree = "<group>"; };
+		F5E3333E19E0AA0E00059E83 /* SHMEntityControllerTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMEntityControllerTableViewController.h; sourceTree = "<group>"; };
+		F5E3333F19E0AA0E00059E83 /* SHMEntityControllerTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMEntityControllerTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +143,8 @@
 				6003F5A6195388D20070C39A /* SHMViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				F5E3333E19E0AA0E00059E83 /* SHMEntityControllerTableViewController.h */,
+				F5E3333F19E0AA0E00059E83 /* SHMEntityControllerTableViewController.m */,
 			);
 			path = SHMKit;
 			sourceTree = "<group>";
@@ -364,6 +369,7 @@
 				6003F59E195388D20070C39A /* SHMAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SHMViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				F5E3334019E0AA0E00059E83 /* SHMEntityControllerTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

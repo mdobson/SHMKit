@@ -10,4 +10,8 @@
 
 @interface SHMViewController : UIViewController
 
+@property (nonatomic, retain) IBOutlet UITextField *text;
+
+- (IBAction)getSirenEndpoint:(id)sender;
+
 @end
