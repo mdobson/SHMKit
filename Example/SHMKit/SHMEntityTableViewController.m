@@ -6,15 +6,17 @@
 //  Copyright (c) 2014 Matt Dobson. All rights reserved.
 //
 
-#import "SHMEntityControllerTableViewController.h"
+#import "SHMEntityTableViewController.h"
+#import "SHMActionViewController.h"
 
-@interface SHMEntityControllerTableViewController ()
+@interface SHMEntityTableViewController ()
 
 @property (nonatomic, strong) SHMEntity* retrievedEntity;
+@property (nonatomic, strong) SHMAction* retrievedAction;
 
 @end
 
-@implementation SHMEntityControllerTableViewController
+@implementation SHMEntityTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -180,14 +182,26 @@
     return @{@"major": major, @"minor": minor};
 }
 
+- (IBAction)reset:(UIStoryboardSegue *)segue {
+    [self.tableView reloadData];
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 2) {
         self.retrievedEntity = self.entity.entities[indexPath.row];
         [self transitionWithEntity:self.retrievedEntity];
+    } else if (indexPath.section == 3) {
+        SHMAction *action = self.entity.actions[indexPath.row];
+        [self transitionWithAction:action];
     } else if (indexPath.section == 4) {
         SHMLink *link = self.entity.links[indexPath.row];
         [self transitionWithLink:link];
     }
+}
+
+- (void)transitionWithAction:(SHMAction *)action {
+    self.retrievedAction = action;
+    [self performSegueWithIdentifier:@"action" sender:self];
 }
 
 - (void)transitionWithLink:(SHMLink *)link {
@@ -220,6 +234,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"selfEntityOrLink"]) {
         [segue.destinationViewController setEntity:self.retrievedEntity];
+    } else if ([[segue identifier] isEqualToString:@"action"]) {
+        [segue.destinationViewController setSHMAction:self.retrievedAction];
     }
 }
 /*

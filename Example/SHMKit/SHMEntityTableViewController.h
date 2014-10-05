@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <SHMKit/SHMEntity.h>
 
-@interface SHMEntityControllerTableViewController : UITableViewController
+@interface SHMEntityTableViewController : UITableViewController
 
 @property (nonatomic, strong) SHMEntity* entity;
 

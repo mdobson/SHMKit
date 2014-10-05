@@ -47,7 +47,7 @@
         <!--Your API-->
         <scene sceneID="ILk-b8-zZg">
             <objects>
-                <tableViewController id="vgL-Bi-AEL" customClass="SHMEntityControllerTableViewController" sceneMemberID="viewController">
+                <tableViewController id="vgL-Bi-AEL" customClass="SHMEntityTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="JqV-KD-qib">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -81,7 +81,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Your API" id="A8H-f2-Y5w"/>
                     <connections>
-                        <segue destination="Jod-QV-e5d" kind="push" identifier="details" id="eFF-CJ-igc"/>
+                        <segue destination="Jod-QV-e5d" kind="push" identifier="action" id="eFF-CJ-igc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0u2-Sf-X8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -98,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="1297" y="352"/>
         </scene>
-        <!--Details-->
+        <!--Action-->
         <scene sceneID="MNV-if-p3c">
             <objects>
-                <viewController id="Jod-QV-e5d" sceneMemberID="viewController">
+                <viewController id="Jod-QV-e5d" customClass="SHMActionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bpJ-Ro-zJv"/>
                         <viewControllerLayoutGuide type="bottom" id="RE8-Z3-KwX"/>
@@ -111,9 +111,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Details" id="Hh1-xY-vPV"/>
+                    <navigationItem key="navigationItem" title="Action" id="Hh1-xY-vPV"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mj2-bG-DfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="mP3-OU-mtb" userLabel="Exit" sceneMemberID="exit"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="V7X-RE-h3L">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <segue destination="mP3-OU-mtb" kind="unwind" identifier="unwind" unwindAction="reset:" id="8T7-67-x1L"/>
+                    </connections>
+                </button>
             </objects>
             <point key="canvasLocation" x="1740" y="358"/>
         </scene>

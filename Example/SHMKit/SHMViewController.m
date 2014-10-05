@@ -7,7 +7,7 @@
 //
 
 #import "SHMViewController.h"
-#import "SHMEntityControllerTableViewController.h"
+#import "SHMEntityTableViewController.h"
 #import <SHMKit/SHMParser.h>
 #import <SHMKit/SHMParser.h>
 
