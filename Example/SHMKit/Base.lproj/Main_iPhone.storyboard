@@ -53,7 +53,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="G4X-16-gVc" detailTextLabel="mqu-IU-cmo" style="IBUITableViewCellStyleSubtitle" id="fyT-Eb-4D8">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="G4X-16-gVc" detailTextLabel="mqu-IU-cmo" style="IBUITableViewCellStyleSubtitle" id="fyT-Eb-4D8">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fyT-Eb-4D8" id="nhT-k2-ffo">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -80,10 +80,42 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Your API" id="A8H-f2-Y5w"/>
+                    <connections>
+                        <segue destination="Jod-QV-e5d" kind="push" identifier="details" id="eFF-CJ-igc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0u2-Sf-X8X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sNY-dh-5Xc">
+                    <rect key="frame" x="0.0" y="0.0" width="46" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Button">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <segue destination="vgL-Bi-AEL" kind="push" identifier="selfEntityOrLink" id="sFD-ji-9TV"/>
+                    </connections>
+                </button>
             </objects>
-            <point key="canvasLocation" x="1256" y="339"/>
+            <point key="canvasLocation" x="1297" y="352"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="MNV-if-p3c">
+            <objects>
+                <viewController id="Jod-QV-e5d" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bpJ-Ro-zJv"/>
+                        <viewControllerLayoutGuide type="bottom" id="RE8-Z3-KwX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2bp-qE-u7c">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Details" id="Hh1-xY-vPV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mj2-bG-DfX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740" y="358"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pmg-sW-npD">
@@ -109,4 +141,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="acL-QI-zcC"/>
+    </inferredMetricsTieBreakers>
 </document>

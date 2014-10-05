@@ -19,6 +19,7 @@
 @property (nonatomic, retain) NSArray *actions;
 @property (nonatomic, retain) NSString *title;
 @property (nonatomic, retain) NSArray *subEntityRels;
+@property (nonatomic, retain) NSString *href;
 
 /*
  Initialize a new Siren Entity with an NSData class. This is ideal for when you're making HTTP requests straight to the API.
@@ -40,6 +41,10 @@
  Async step to link in current entity. If relation isn't present then return error as first parameter to the block.
  */
 -(void) stepToLink:(SHMLink *)link withCompletion:(void (^)(NSError *error, SHMEntity *entity))block;
+/*
+ Async step to href property on entity. Typically used with linked sub-entities.
+ */
+-(void) stepToHrefWithCompletion:(void (^)(NSError *error, SHMEntity *entity))block;
 
 /*
  Get a specific siren action from the entity. If no action with that particular name is present return nil.

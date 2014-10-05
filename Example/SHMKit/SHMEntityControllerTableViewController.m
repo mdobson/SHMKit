@@ -10,13 +10,17 @@
 
 @interface SHMEntityControllerTableViewController ()
 
+@property (nonatomic, strong) SHMEntity* retrievedEntity;
+
 @end
 
 @implementation SHMEntityControllerTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    if ([self.entity.actions isEqual:[NSNull null]]) {
+        self.entity.actions = @[];
+    }
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
@@ -110,7 +114,7 @@
             descriptions = @{@"major": self.entity.class[indexPath.row], @"minor": @"class"};
             break;
         case 1:
-            descriptions = @{@"major": self.entity.properties[self.entity.properties.allKeys[indexPath.row]], @"minor": self.entity.properties.allKeys[indexPath.row]};
+            descriptions = [self propertyDescriptionAtIndexPath:indexPath];
             break;
         case 2:
             descriptions = [self entityDescription:self.entity.entities[indexPath.row]];
@@ -125,6 +129,14 @@
             break;
     }
     return descriptions;
+}
+
+- (NSDictionary *) propertyDescriptionAtIndexPath:(NSIndexPath *)indexPath {
+    
+    id value = self.entity.properties[self.entity.properties.allKeys[indexPath.row]];
+    NSString *coerced = [NSString stringWithFormat:@"%@", value];
+    
+    return @{@"major": coerced, @"minor": self.entity.properties.allKeys[indexPath.row]};
 }
 
 - (NSDictionary *) entityDescription:(SHMEntity *)entity {
@@ -151,8 +163,8 @@
 - (NSDictionary *) actionDescription:(SHMAction *)action {
     NSString *major = @"Action Description Unavailable";
     NSString *minor = @"...";
-    if (action.title != nil) {
-        major = action.title;
+    if (action.name != nil) {
+        major = action.name;
     }
     
     if (action.href != nil) {
@@ -168,6 +180,48 @@
     return @{@"major": major, @"minor": minor};
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {
+        self.retrievedEntity = self.entity.entities[indexPath.row];
+        [self transitionWithEntity:self.retrievedEntity];
+    } else if (indexPath.section == 4) {
+        SHMLink *link = self.entity.links[indexPath.row];
+        [self transitionWithLink:link];
+    }
+}
+
+- (void)transitionWithLink:(SHMLink *)link {
+    [self.entity stepToLink:link withCompletion:^(NSError *error, SHMEntity *entity) {
+        if (!error) {
+            self.retrievedEntity = entity;
+            [self performSegueWithIdentifier:@"selfEntityOrLink" sender:self];
+        }
+    }];
+}
+
+- (void)transitionWithEntity:(SHMEntity *)entity {
+    if (entity.href != nil) {
+        [entity stepToHrefWithCompletion:^(NSError *error, SHMEntity *entity) {
+            if (!error) {
+                self.retrievedEntity = entity;
+                [self performSegueWithIdentifier:@"selfEntityOrLink" sender:self];
+            }
+        }];
+    } else {
+        [entity stepToLinkRel:@"self" withCompletion:^(NSError *error, SHMEntity *entity) {
+            if (!error) {
+                self.retrievedEntity = entity;
+                [self performSegueWithIdentifier:@"selfEntityOrLink" sender:self];
+            }
+        }];
+    }
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"selfEntityOrLink"]) {
+        [segue.destinationViewController setEntity:self.retrievedEntity];
+    }
+}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

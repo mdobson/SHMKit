@@ -36,6 +36,7 @@
     self.class = json[@"class"];
     self.properties = json[@"properties"];
     self.title = json[@"title"];
+    self.href = json[@"href"];
     
     NSMutableArray *links = [[NSMutableArray alloc] init];
     for (NSDictionary *link in json[@"links"]) {
@@ -51,12 +52,16 @@
     self.subEntityRels = subEntityRels;
     
     NSMutableArray *actions = [[NSMutableArray alloc] init];
-    for (NSDictionary *action in json[@"actions"]) {
-        SHMAction *a = [[SHMAction alloc] initWithDictionary:action];
-        [actions addObject:a];
+    if ([json[@"actions"] isEqual:[NSNull null]]) {
+        self.actions = @[];
+    } else {
+        for (NSDictionary *action in json[@"actions"]) {
+            SHMAction *a = [[SHMAction alloc] initWithDictionary:action];
+            [actions addObject:a];
+        }
+        self.actions = actions;
     }
-    self.actions = actions;
-    
+
     if ([json objectForKey:@"title"] != nil) {
         self.title = json[@"title"];
     }
@@ -128,6 +133,21 @@
 -(void) stepToLink:(SHMLink *)link withCompletion:(void (^)(NSError *error, SHMEntity *entity))block {
     NSString * method = @"GET";
     NSString * href = link.href;
+    if (href != nil) {
+        href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSURL *url = [[SHMRequestFactory sharedFactory] generateUrlForHref:href];
+        NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
+        req.HTTPMethod = method;
+        [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
+    } else {
+        NSError *err = [[NSError alloc] initWithDomain:@"siren" code:1 userInfo:@{NSLocalizedDescriptionKey: @"No href to step to."}];
+        block(err, nil);
+    }
+}
+
+-(void) stepToHrefWithCompletion:(void (^)(NSError *error, SHMEntity *entity))block {
+    NSString * method = @"GET";
+    NSString * href = self.href;
     if (href != nil) {
         href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         NSURL *url = [[SHMRequestFactory sharedFactory] generateUrlForHref:href];
