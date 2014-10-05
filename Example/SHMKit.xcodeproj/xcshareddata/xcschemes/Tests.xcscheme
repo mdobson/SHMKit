@@ -9,6 +9,20 @@
          <BuildActionEntry
             buildForTesting = "YES"
             buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6003F589195388D20070C39A"
+               BuildableName = "SHMKit.app"
+               BlueprintName = "SHMKit"
+               ReferencedContainer = "container:SHMKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "YES">
@@ -79,9 +93,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6003F5AD195388D20070C39A"
-            BuildableName = "Tests.xctest"
-            BlueprintName = "Tests"
+            BlueprintIdentifier = "6003F589195388D20070C39A"
+            BuildableName = "SHMKit.app"
+            BlueprintName = "SHMKit"
             ReferencedContainer = "container:SHMKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
