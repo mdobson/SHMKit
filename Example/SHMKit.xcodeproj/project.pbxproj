@@ -26,6 +26,7 @@
 		F50BAB0219E0DED1000B751E /* SHMActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F50BAB0119E0DED1000B751E /* SHMActionViewController.m */; };
 		F5A6EFEF19E07AAE00F1A585 /* SHMParserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A6EFEE19E07AAE00F1A585 /* SHMParserSpec.m */; };
 		F5E3334019E0AA0E00059E83 /* SHMEntityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E3333F19E0AA0E00059E83 /* SHMEntityTableViewController.m */; };
+		F5E55A9019E179E70056F493 /* SHMEntitySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E55A8F19E179E70056F493 /* SHMEntitySpec.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		F5A6EFEE19E07AAE00F1A585 /* SHMParserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMParserSpec.m; sourceTree = "<group>"; };
 		F5E3333E19E0AA0E00059E83 /* SHMEntityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMEntityTableViewController.h; sourceTree = "<group>"; };
 		F5E3333F19E0AA0E00059E83 /* SHMEntityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMEntityTableViewController.m; sourceTree = "<group>"; };
+		F5E55A8F19E179E70056F493 /* SHMEntitySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMEntitySpec.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 			children = (
 				F5A6EFEE19E07AAE00F1A585 /* SHMParserSpec.m */,
 				6003F5B6195388D20070C39A /* Supporting Files */,
+				F5E55A8F19E179E70056F493 /* SHMEntitySpec.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5E55A9019E179E70056F493 /* SHMEntitySpec.m in Sources */,
 				F5A6EFEF19E07AAE00F1A585 /* SHMParserSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
