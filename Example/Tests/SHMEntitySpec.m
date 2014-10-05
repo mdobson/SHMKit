@@ -5,7 +5,6 @@
 SpecBegin(SHMEntity)
 
 describe(@"Entity Parsing and Retrieval", ^{
-    
     it(@"Should retrieve a base entity", ^AsyncBlock{
         NSString *uri = @"http://msiren.herokuapp.com/";
         SHMParser *parser = [[SHMParser alloc] initWithSirenRoot:uri];
