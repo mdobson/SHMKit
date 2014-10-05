@@ -1,10 +1,10 @@
 # reference: http://www.objc.io/issue-6/travis-ci.html
 
 language: objective-c
-# before_install: cd Example && pod install && cd -
-script:
+before_install: 
 - brew update
 - brew upgrade xctool
 - gem update cocoapods
 - cd Example && pod install && cd -
-- xctool -workspace Example/SHMKit.xcworkspace -scheme SHMKit-Tests -sdk iphonesimulator -destination 'name=iPhone 5,OS=7.1' test -freshSimulator -freshInstall ONLY_ACTIVE_ARCH=NO
+script:
+- xctool -workspace Example/SHMKit.xcworkspace -scheme SHMKit-Tests -sdk iphonesimulator test ONLY_ACTIVE_ARCH=NO
