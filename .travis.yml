@@ -7,5 +7,4 @@ before_install:
 - gem update cocoapods
 - cd Example && pod install && cd -
 script:
-- xctool -workspace Example/SHMKit.xcworkspace -scheme SHMKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
-- xctool -workspace Example/SHMKit.xcworkspace -scheme SHMKitTests -sdk iphonesimulator test ONLY_ACTIVE_ARCH=NO
+- xctool test -workspace Example/SHMKit.xcworkspace -scheme SHMKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
