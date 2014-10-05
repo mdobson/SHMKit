@@ -6,4 +6,5 @@ script:
 - brew update
 - brew upgrade xctool
 - gem update cocoapods
+- cd Example && pod install && cd -
 - xctool test -workspace Example/SHMKit.xcworkspace -scheme SHMKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
