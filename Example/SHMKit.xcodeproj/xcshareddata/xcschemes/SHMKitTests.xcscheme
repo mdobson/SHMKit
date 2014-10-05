@@ -14,7 +14,35 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C6CC24C5EBF5F580298EB9BA"
+               BlueprintIdentifier = "6003F589195388D20070C39A"
+               BuildableName = "SHMKit.app"
+               BlueprintName = "SHMKit"
+               ReferencedContainer = "container:SHMKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "6003F5AD195388D20070C39A"
+               BuildableName = "Tests.xctest"
+               BlueprintName = "Tests"
+               ReferencedContainer = "container:SHMKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "A8EC85CFE30171ACAC6AA6B8"
                BuildableName = "SHMKit.bundle"
                BlueprintName = "SHMKit"
                ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -29,6 +57,15 @@
       buildConfiguration = "Debug">
       <Testables>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "A8EC85CFE30171ACAC6AA6B8"
+            BuildableName = "SHMKit.bundle"
+            BlueprintName = "SHMKit"
+            ReferencedContainer = "container:Pods/Pods.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </TestAction>
    <LaunchAction
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
@@ -42,7 +79,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C6CC24C5EBF5F580298EB9BA"
+            BlueprintIdentifier = "A8EC85CFE30171ACAC6AA6B8"
             BuildableName = "SHMKit.bundle"
             BlueprintName = "SHMKit"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">
@@ -60,7 +97,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C6CC24C5EBF5F580298EB9BA"
+            BlueprintIdentifier = "A8EC85CFE30171ACAC6AA6B8"
             BuildableName = "SHMKit.bundle"
             BlueprintName = "SHMKit"
             ReferencedContainer = "container:Pods/Pods.xcodeproj">
