@@ -3,4 +3,7 @@
 language: objective-c
 before_install: cd Example && pod install && cd -
 script:
+- brew update
+- brew ugrade xctool
+- gem update cocoapods
 - xctool test -workspace Example/SHMKit.xcworkspace -scheme SHMKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
