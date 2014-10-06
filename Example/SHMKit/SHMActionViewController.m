@@ -36,6 +36,7 @@
             [self.view addSubview:textField];
             textField.placeholder = field.name;
             textField.textAlignment = NSTextAlignmentCenter;
+            [textField becomeFirstResponder];
             [self.fields setValue:textField forKey:field.name];
             [self.view addSubview:textField];
         } else if (field.type == Siren_Field_Radio) {
