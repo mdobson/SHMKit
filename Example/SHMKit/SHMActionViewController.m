@@ -38,6 +38,17 @@
             textField.textAlignment = NSTextAlignmentCenter;
             [self.fields setValue:textField forKey:field.name];
             [self.view addSubview:textField];
+        } else if (field.type == Siren_Field_Radio) {
+            NSMutableArray *names = [[NSMutableArray alloc] init];
+            for (NSDictionary *value in field.values) {
+                [names addObject:value[@"value"]];
+            }
+            UISegmentedControl *segmentControl = [[UISegmentedControl alloc] initWithItems:names];
+            segmentControl.frame = fieldFrame;
+            [segmentControl setSelectedSegmentIndex:0];
+            [segmentControl addTarget:self action:@selector(setSelection) forControlEvents:UIControlEventValueChanged];
+            [self.fields setValue:segmentControl forKey:field.name];
+            [self.view addSubview:segmentControl];
         }
         
         fieldIncr += 54;
@@ -63,6 +74,10 @@
         } else if (field.type == Siren_Field_Text) {
             UITextField * input = (UITextField *)self.fields[field.name];
             params[field.name] = input.text;
+        } else if (field.type == Siren_Field_Radio) {
+            UISegmentedControl *input = (UISegmentedControl *)self.fields[field.name];
+            NSDictionary *value = field.values[input.selectedSegmentIndex];
+            params[field.name] = value[@"value"];
         }
     }
     
@@ -84,6 +99,10 @@
         NSLog(@"%@", self.retrievedEntity.properties);
         [segue.destinationViewController setEntity:self.retrievedEntity];
     }
+}
+
+- (void)setSelection {
+    
 }
 
 /*

@@ -83,8 +83,9 @@
             self.type = Siren_Field_Hidden;
         }
         
-        
-        if ([data objectForKey:@"value"] != nil) {
+        if ([data objectForKey:@"value"] != nil && [[[[data objectForKey:@"value"] class] description] isEqualToString:@"__NSCFArray"]) {
+            self.values = data[@"value"];
+        } else if ([data objectForKey:@"value"] != nil) {
             self.value = data[@"value"];
         }
     }
