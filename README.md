@@ -1,6 +1,6 @@
 # SHMKit
 
-[![CI Status](http://img.shields.io/travis/mdobson/SHMKit-Cocoapods.svg?style=flat)](https://travis-ci.org/mdobson/SHMKit)
+[![CI Status](http://img.shields.io/travis/mdobson/SHMKit.svg?style=flat)](https://travis-ci.org/mdobson/SHMKit)
 [![Version](https://img.shields.io/cocoapods/v/SHMKit.svg?style=flat)](http://cocoadocs.org/docsets/SHMKit)
 [![License](https://img.shields.io/cocoapods/l/SHMKit.svg?style=flat)](http://cocoadocs.org/docsets/SHMKit)
 [![Platform](https://img.shields.io/cocoapods/p/SHMKit.svg?style=flat)](http://cocoadocs.org/docsets/SHMKit)
