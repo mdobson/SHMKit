@@ -9,6 +9,8 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+To use the old version of SHMKit please see the deprecated branch.
+
 ## Requirements
 
 SHMKit was written to have minimal dependencies, and access core iOS APIs from the start.
