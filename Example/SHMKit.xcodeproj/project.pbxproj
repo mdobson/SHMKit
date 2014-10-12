@@ -27,6 +27,7 @@
 		F58B74A219E57725003E8B0B /* SHMActionDataHelperSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F58B74A119E57725003E8B0B /* SHMActionDataHelperSpec.m */; };
 		F5A63FF619E2CEE900E49E94 /* SHMUrlHelperSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A63FF519E2CEE900E49E94 /* SHMUrlHelperSpec.m */; };
 		F5A6EFEF19E07AAE00F1A585 /* SHMParserSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F5A6EFEE19E07AAE00F1A585 /* SHMParserSpec.m */; };
+		F5C8CE6219EAD00700553CC9 /* SHMRequestFactorySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F5C8CE6119EAD00700553CC9 /* SHMRequestFactorySpec.m */; };
 		F5D147CB19E96AD90006C683 /* SHMLinkSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F5D147CA19E96AD90006C683 /* SHMLinkSpec.m */; };
 		F5E3334019E0AA0E00059E83 /* SHMEntityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E3333F19E0AA0E00059E83 /* SHMEntityTableViewController.m */; };
 		F5E55A9019E179E70056F493 /* SHMEntitySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = F5E55A8F19E179E70056F493 /* SHMEntitySpec.m */; };
@@ -77,6 +78,7 @@
 		F58B74A119E57725003E8B0B /* SHMActionDataHelperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMActionDataHelperSpec.m; sourceTree = "<group>"; };
 		F5A63FF519E2CEE900E49E94 /* SHMUrlHelperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMUrlHelperSpec.m; sourceTree = "<group>"; };
 		F5A6EFEE19E07AAE00F1A585 /* SHMParserSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMParserSpec.m; sourceTree = "<group>"; };
+		F5C8CE6119EAD00700553CC9 /* SHMRequestFactorySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMRequestFactorySpec.m; sourceTree = "<group>"; };
 		F5D147CA19E96AD90006C683 /* SHMLinkSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMLinkSpec.m; sourceTree = "<group>"; };
 		F5E3333E19E0AA0E00059E83 /* SHMEntityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHMEntityTableViewController.h; sourceTree = "<group>"; };
 		F5E3333F19E0AA0E00059E83 /* SHMEntityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHMEntityTableViewController.m; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				F5A63FF519E2CEE900E49E94 /* SHMUrlHelperSpec.m */,
 				F58B74A119E57725003E8B0B /* SHMActionDataHelperSpec.m */,
 				F5D147CA19E96AD90006C683 /* SHMLinkSpec.m */,
+				F5C8CE6119EAD00700553CC9 /* SHMRequestFactorySpec.m */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 			files = (
 				F5E55A9019E179E70056F493 /* SHMEntitySpec.m in Sources */,
 				F5A6EFEF19E07AAE00F1A585 /* SHMParserSpec.m in Sources */,
+				F5C8CE6219EAD00700553CC9 /* SHMRequestFactorySpec.m in Sources */,
 				F5A63FF619E2CEE900E49E94 /* SHMUrlHelperSpec.m in Sources */,
 				F58B74A219E57725003E8B0B /* SHMActionDataHelperSpec.m in Sources */,
 				F5D147CB19E96AD90006C683 /* SHMLinkSpec.m in Sources */,
