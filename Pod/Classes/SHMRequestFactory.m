@@ -81,6 +81,10 @@
         NSURL *urlObj = [self generateUrlForHref:constructedUrl];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:urlObj];
         request.HTTPMethod = [SHMConstants verbFromEnum:action.method];
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(setAuthorizationTokenHeader)]) {
+            NSString *authHeader = [self.delegate setAuthorizationTokenHeader];
+            [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+        }
         return request;
     }
 }
@@ -109,6 +113,10 @@
         }
         
         request.HTTPMethod = [SHMConstants verbFromEnum:action.method];
+        if (self.delegate != nil && [self.delegate respondsToSelector:@selector(setAuthorizationTokenHeader)]) {
+            NSString *authHeader = [self.delegate setAuthorizationTokenHeader];
+            [request setValue:authHeader forHTTPHeaderField:@"Authorization"];
+        }
         return request;
     }
 }

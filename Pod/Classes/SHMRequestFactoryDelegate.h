@@ -15,4 +15,6 @@
 
 -(NSURLRequest *) buildBodylessRequestForAction:(SHMAction *)action withParameters:(NSDictionary *)params;
 
+-(NSString *) setAuthorizationTokenHeader;
+
 @end
