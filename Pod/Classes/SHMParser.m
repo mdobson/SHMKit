@@ -25,10 +25,7 @@
 }
 
 -(void) retrieveRoot:(void (^)(NSError *, SHMEntity *))block {
-    NSString *method = @"GET";
-    NSURL * url = [[NSURL alloc] initWithString:self.endpoint];
-    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
-    req.HTTPMethod = method;
+    NSURLRequest *req = [[SHMRequestFactory sharedFactory] constructRequestForHref:self.endpoint];
     [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
 }
 

@@ -115,13 +115,9 @@
         return;
     }
     
-    NSString * method = @"GET";
     NSString * href = [self linkForRel:linkRel];
     if (href != nil) {
-        href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSURL *url = [[SHMRequestFactory sharedFactory] generateUrlForHref:href];
-        NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
-        req.HTTPMethod = method;
+        NSURLRequest *req = [[SHMRequestFactory sharedFactory] constructRequestForHref:href];
         [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
     } else {
         NSError *err = [[NSError alloc] initWithDomain:@"siren" code:1 userInfo:@{NSLocalizedDescriptionKey: @"No href to step to."}];
@@ -131,13 +127,9 @@
 }
 
 -(void) stepToLink:(SHMLink *)link withCompletion:(void (^)(NSError *error, SHMEntity *entity))block {
-    NSString * method = @"GET";
     NSString * href = link.href;
     if (href != nil) {
-        href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSURL *url = [[SHMRequestFactory sharedFactory] generateUrlForHref:href];
-        NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
-        req.HTTPMethod = method;
+        NSURLRequest *req = [[SHMRequestFactory sharedFactory] constructRequestForHref:link.href];
         [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
     } else {
         NSError *err = [[NSError alloc] initWithDomain:@"siren" code:1 userInfo:@{NSLocalizedDescriptionKey: @"No href to step to."}];
@@ -146,13 +138,9 @@
 }
 
 -(void) stepToHrefWithCompletion:(void (^)(NSError *error, SHMEntity *entity))block {
-    NSString * method = @"GET";
     NSString * href = self.href;
     if (href != nil) {
-        href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        NSURL *url = [[SHMRequestFactory sharedFactory] generateUrlForHref:href];
-        NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
-        req.HTTPMethod = method;
+        NSURLRequest *req = [[SHMRequestFactory sharedFactory] constructRequestForHref:self.href];
         [[SHMEntityFactory sharedFactory] sendSirenRequest:req withBlock:block];
     } else {
         NSError *err = [[NSError alloc] initWithDomain:@"siren" code:1 userInfo:@{NSLocalizedDescriptionKey: @"No href to step to."}];

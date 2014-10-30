@@ -12,7 +12,7 @@
 @interface SHMParser : NSObject
 
 @property (nonatomic, retain) NSString *endpoint;
-
+@property (nonatomic, retain) NSString *accessToken;
 
 /*
 Initializes a siren root. The endpoint parameter should be the entry point for your API. Ideally this should be placed in an App Delegate if possible.

@@ -121,6 +121,18 @@
     }
 }
 
+-(NSURLRequest *) constructRequestForHref:(NSString *)href {
+    href = [href stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURL *url = [self generateUrlForHref:href];
+    NSMutableURLRequest * req = [[NSMutableURLRequest alloc] initWithURL:url];
+    if (self.delegate != nil && [self.delegate respondsToSelector:@selector(setAuthorizationTokenHeader)]) {
+        NSString *authHeader = [self.delegate setAuthorizationTokenHeader];
+        [req setValue:authHeader forHTTPHeaderField:@"Authorization"];
+    }
+    req.HTTPMethod = @"GET";
+    return req;
+}
+
 -(NSURL *) generateUrlForHref:(NSString *)href {
     NSURL *url = [NSURL URLWithString:href];
     if (url.host == nil) {

@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SHMKit"
-  s.version          = "0.1.1"
+  s.version          = "0.1.2"
   s.summary          = "A generic client for Siren Hypermedia APIs"
   s.description      = <<-DESC
                         A generic Siren hypermedia client. If you're API conforms to the Siren spec use this to interact with it.

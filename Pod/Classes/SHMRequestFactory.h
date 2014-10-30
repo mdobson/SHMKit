@@ -33,6 +33,8 @@
  */
 -(NSURLRequest *) constructBodylessHTTPRequestForAction:(SHMAction *)action withParams:(NSDictionary *)dict;
 
+-(NSURLRequest *) constructRequestForHref:(NSString *)href;
+
 /*
  Generate the URL for the outgoing API request. If the provided href is a fragment generate a full URL.
 */
