@@ -1,10 +1,10 @@
 # reference: http://www.objc.io/issue-6/travis-ci.html
 
 language: objective-c
+cache: cocoapods
+podfile: Example/Podfile
 before_install: 
-- brew update
-- brew upgrade xctool
-- gem update cocoapods
-- cd Example && pod install && cd -
+- gem install cocoapods
 script:
-- xctool clean build test -workspace Example/SHMKit.xcworkspace -scheme Tests -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
+- set -o pipefail && xcodebuild test -workspace Example/SHMKit.xcworkspace -scheme SHMKit -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty -c
+- pod lib lint --quick
